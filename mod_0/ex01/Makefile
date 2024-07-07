@@ -6,7 +6,7 @@
 #    By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/06 02:20:07 by grebrune          #+#    #+#              #
-#    Updated: 2024/07/07 15:24:38 by grebrune         ###   ########.fr        #
+#    Updated: 2024/07/07 17:38:00 by grebrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ OBJ_D		:=	objs/
 
 OBJS		=	$(SRCS:%.cpp=$(OBJ_D)%.o)
 
-HEAD		:=	PhoneBook.hpp	\
-				contact.hpp	\
+HEAD		:=	Friends.hpp	\
+				Contact.hpp	\
 
 HEAD_D		:=	includes
 
@@ -39,11 +39,11 @@ BIN			:=	friends
 
 all			:	$(BIN)
 
-$(BIN)		:	$(OBJ_D) $(OBJS) $(HEAD)
+$(BIN)		:	$(OBJ_D) $(OBJS)
 				$(CFLAGS) -o $(BIN) $(OBJS)
 
-$(OBJS)	:	$(OBJ_D)%.o: $(SRCS_D)%.cpp $(HEAD) Makefile
-				$(CFLAGS) -c $< -o $@
+$(OBJS)		:	$(OBJ_D)%.o: $(SRCS_D)%.cpp $(HEAD_D)/*.hpp Makefile
+				$(CFLAGS) -I$(HEAD_D) -c $< -o $@
 
 $(OBJ_D)	:
 				@mkdir -p $(OBJ_D)

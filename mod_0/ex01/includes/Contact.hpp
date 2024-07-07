@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 12:56:18 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/07 12:56:18 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/07 16:27:33 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 class Contact {
 public:
 	Contact(void);
-	bool get_infos(void);
+	bool	get_infos(void);
+	void	print(int index);
+	void	precision(void);
 private:
 	std::string FirstName;
 	std::string LastName;

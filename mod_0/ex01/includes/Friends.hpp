@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Friends.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 15:26:35 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/07 15:26:35 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/07 16:26:50 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef FRIENDS_HPP
+# define FRIENDS_HPP
 
 # include <iostream>
 # include <string>
-# include "contact.hpp"
+# include "Contact.hpp"
 
 class PhoneBook {
 	public :
