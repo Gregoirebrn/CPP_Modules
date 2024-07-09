@@ -14,17 +14,17 @@
 #define CONTACT_HPP
 
 class Contact {
+private:
+	std::string _FirstName;
+	std::string _LastName;
+	std::string _NickName;
+	std::string _PhoneNumber;
+	std::string _DarkestSecret;
 public:
 	Contact(void);
 	bool	get_infos(void);
 	void	print(int index);
 	void	precision(void);
-private:
-	std::string FirstName;
-	std::string LastName;
-	std::string NickName;
-	std::string PhoneNumber;
-	std::string DarkestSecret;
 };
 
 #endif

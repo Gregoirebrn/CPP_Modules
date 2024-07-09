@@ -6,20 +6,20 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 15:47:51 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/07 17:08:06 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/09 18:31:10 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Friends.hpp"
+#include "../includes/PhoneBook.hpp"
 
 void PhoneBook::new_contact() {
-	if (nbr_friends == 8)
-		nbr_friends = 0;
-	if (friends[nbr_friends].get_infos())
+	if (_nbr_friends == 8)
+		_nbr_friends = 0;
+	if (_friends[_nbr_friends].get_infos())
 	{
-		nbr_friends++;
-		index = nbr_friends - 1;
-		std::cout << "New Friend added. It's your " << nbr_friends << " friend.\n";
+		_nbr_friends++;
+		_index = _nbr_friends - 1;
+		std::cout << "New Friend added. It's your " << _nbr_friends << " friend.\n";
 	}
 	else
 		std::cout << "Wrong input !" <<std::endl;
@@ -28,8 +28,8 @@ void PhoneBook::new_contact() {
 }
 
 void PhoneBook::Creator() {
-	nbr_friends = 0;
-	index = 0;
+	_nbr_friends = 0;
+	_index = 0;
 }
 
 int	main(void)
@@ -37,7 +37,7 @@ int	main(void)
 	PhoneBook pb;
 	std::string cmd;
 	pb.Creator();
-	std::cout << "Welcome in friends, what do you want to do ?" <<std::endl;
+	std::cout << "Welcome in Friends, what do you want to do ?" <<std::endl;
 	do
 	{
 		std::getline (std::cin,cmd);
