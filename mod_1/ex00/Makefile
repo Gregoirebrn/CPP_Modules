@@ -6,7 +6,7 @@
 #    By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/06 02:20:07 by grebrune          #+#    #+#              #
-#    Updated: 2024/07/07 19:12:13 by grebrune         ###   ########.fr        #
+#    Updated: 2024/07/09 20:05:08 by grebrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 SRCS		:=	main.cpp		\
 				newZombie.cpp	\
 				Zombie.cpp		\
-				ramdom.cpp		\
+				ramdomChump.cpp	\
 
 SRCS_D		:=	src/
 
@@ -25,13 +25,13 @@ OBJS_D		:=	objs/
 
 OBJS		=	$(SRCS:%.cpp=$(OBJ_D)%.o)
 
-HEAD		:=	Zombie.hpp
+HEAD		:=	Zombie.hpp	\
 
 HEAD_D		:=	.
 
 CFLAGS		:=	c++ -Wall -Wextra -Werror #-std=c++98
 
-BIN			:=	megaphone
+BIN			:=	Zombie
 
 ########################################################################################################################
 #                                                        RULES                                                         #
@@ -42,8 +42,8 @@ all			:	$(BIN)
 $(BIN)		:	$(OBJS_D) $(OBJS)
 				$(CFLAGS) -o $(BIN) $(OBJS)
 
-$(OBJS)	:	$(OBJ_D)%.o: $(SRCS_D)%.cpp Makefile
-				$(CFLAGS) -c $< -o $@
+$(OBJS)		:	$(OBJ_D)%.o: $(SRCS_D)%.cpp Makefile
+				$(CFLAGS) -I$(HEAD) -c $< -o $@
 
 $(OBJS_D)	:
 				@mkdir -p $(OBJS_D)
