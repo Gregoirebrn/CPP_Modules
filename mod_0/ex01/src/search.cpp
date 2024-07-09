@@ -6,18 +6,18 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 15:21:38 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/07 17:28:34 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/09 18:30:38 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Friends.hpp"
+#include "../includes/PhoneBook.hpp"
 
 void Contact::precision() {
-	std::cout << "First Name     : " << FirstName << "\n";
-	std::cout << "Last Name      : " << LastName << "\n";
-	std::cout << "Nick Name      : " << NickName << "\n";
-	std::cout << "Phone Number   : " << PhoneNumber << "\n";
-	std::cout << "Darkest Secret : " << DarkestSecret << "\n";
+	std::cout << "First Name     : " << _FirstName << "\n";
+	std::cout << "Last Name      : " << _LastName << "\n";
+	std::cout << "Nick Name      : " << _NickName << "\n";
+	std::cout << "Phone Number   : " << _PhoneNumber << "\n";
+	std::cout << "Darkest Secret : " << _DarkestSecret << "\n";
 }
 
 void	PrintIndex(int index){
@@ -51,9 +51,9 @@ void	PrintStr(std::string str){
 
 void Contact::print(int index) {
 	PrintIndex(index);
-	PrintStr(FirstName);
-	PrintStr(LastName);
-	PrintStr(NickName);
+	PrintStr(_FirstName);
+	PrintStr(_LastName);
+	PrintStr(_NickName);
 	std::cout << "\n";
 }
 
@@ -61,20 +61,20 @@ void PhoneBook::search() {
 	int			number;
 	std::string	preci;
 
-	if (nbr_friends == 0)
+	if (_nbr_friends == 0)
 	{
 		std::cout << "You don't have any Friends yet :/" << std::endl;
 		return ;
 	}
 	std::cout << "|  Index  |First Name| Last Name| Nick Name|" << std::endl;
-	for (int i = 0; i <= index ; i++)
-		friends[i].print(i);
+	for (int i = 0; i <= _index ; i++)
+		_friends[i].print(i);
 	std::cout << "If you want additionnal information on a friend enter his index. If not type enter." << std::endl;
 	getline(std::cin, preci);
 	if (!preci.empty()){
 		number = std::stoi(preci, NULL, 10) ;
-		if (number >= 0 && number < nbr_friends)
-			friends[number].precision();
+		if (number >= 0 && number < _nbr_friends)
+			_friends[number].precision();
 		else
 			std::cout << "Index not Found. ";
 	}
