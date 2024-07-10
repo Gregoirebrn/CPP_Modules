@@ -21,7 +21,6 @@ private:
 public:
 	void	annonce(void);
 	Zombie	(std::string name);
-	~Zombie();
 };
 
 Zombie*	newZombie( std::string name );

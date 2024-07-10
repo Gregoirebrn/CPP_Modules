@@ -6,7 +6,7 @@
 #    By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/06 02:20:07 by grebrune          #+#    #+#              #
-#    Updated: 2024/07/09 20:05:08 by grebrune         ###   ########.fr        #
+#    Updated: 2024/07/09 22:52:17 by grebrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@ SRCS_D		:=	src/
 
 OBJS_D		:=	objs/
 
-OBJS		=	$(SRCS:%.cpp=$(OBJ_D)%.o)
+OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
 HEAD		:=	Zombie.hpp	\
 
-HEAD_D		:=	.
+HEAD_D		:=	includes/
 
 CFLAGS		:=	c++ -Wall -Wextra -Werror #-std=c++98
 
@@ -42,8 +42,8 @@ all			:	$(BIN)
 $(BIN)		:	$(OBJS_D) $(OBJS)
 				$(CFLAGS) -o $(BIN) $(OBJS)
 
-$(OBJS)		:	$(OBJ_D)%.o: $(SRCS_D)%.cpp Makefile
-				$(CFLAGS) -I$(HEAD) -c $< -o $@
+$(OBJS_D)%.o: $(SRCS_D)%.cpp Makefile
+				$(CFLAGS) -I$(HEAD_D) -c $< -o $@
 
 $(OBJS_D)	:
 				@mkdir -p $(OBJS_D)

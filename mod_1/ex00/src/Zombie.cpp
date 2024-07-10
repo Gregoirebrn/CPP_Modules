@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Zombie.hpp"
+#include "../includes/Zombie.hpp"
 
 void Zombie::annonce() {
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;

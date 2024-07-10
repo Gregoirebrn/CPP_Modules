@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Zombie.hpp"
+#include "../includes/Zombie.hpp"
 
 int	main(void)
 {
