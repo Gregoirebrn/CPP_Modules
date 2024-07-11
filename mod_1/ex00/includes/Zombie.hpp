@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:00:54 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/09 19:30:19 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/10 13:48:42 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ private:
 public:
 	void	annonce(void);
 	Zombie	(std::string name);
+	~Zombie();
+	std::string getName(void) const;
+	void	setName(std::string);
 };
 
 Zombie*	newZombie( std::string name );
