@@ -26,7 +26,7 @@ HEAD		:=	#
 
 HEAD_D		:=	.
 
-CFLAGS		:=	c++ -Wall -Wextra -Werror #-std=c++98
+CFLAGS		:=	c++ -Wall -Wextra -Werror -std=c++98
 
 BIN			:=	megaphone
 
