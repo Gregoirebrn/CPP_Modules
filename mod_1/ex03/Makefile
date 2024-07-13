@@ -6,7 +6,7 @@
 #    By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/06 02:20:07 by grebrune          #+#    #+#              #
-#    Updated: 2024/07/10 15:18:45 by grebrune         ###   ########.fr        #
+#    Updated: 2024/07/13 11:48:37 by grebrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,9 @@
 ########################################################################################################################
 
 SRCS		:=	main.cpp		\
-				newZombie.cpp	\
-				Zombie.cpp		\
-				ramdomChump.cpp	\
-				zombieHorde.cpp	\
+				HumanA.cpp		\
+				HumanB.cpp		\
+				Weapon.cpp		\
 
 SRCS_D		:=	src/
 
@@ -26,13 +25,15 @@ OBJS_D		:=	objs/
 
 OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
-HEAD		:=	Zombie.hpp	\
+HEAD		:=	HumanA.hpp	\
+				HumanB.hpp	\
+				Weapon.hpp	\
 
 HEAD_D		:=	includes/
 
 CFLAGS		:=	c++ -Wall -Wextra -Werror -std=c++98
 
-BIN			:=	Zombie
+BIN			:=	WorldWarThree
 
 ########################################################################################################################
 #                                                        RULES                                                         #
