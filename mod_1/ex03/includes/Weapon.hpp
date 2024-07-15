@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:50:14 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/13 12:22:25 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:43:02 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define WEAPON_HPP
 
 #include <iostream>
-#include "HumanA.hpp"
-#include "HumanB.hpp"
 
 class Weapon{
 private:
@@ -23,8 +21,8 @@ private:
 public:
 	Weapon(std::string weap);
 	~Weapon();
-	const std::string	getType(void);
-	void				setType(std::string new_type);
+	const std::string& getType(void) const;
+	void setType(std::string new_type);
 };
 
 #endif
