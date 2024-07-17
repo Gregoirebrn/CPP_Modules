@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 15:21:38 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/17 13:46:57 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:41:12 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ void Contact::print(int index) {
 	std::cout << "\n";
 }
 
+bool is_digits(const std::string &str)
+{
+	return str.find_first_not_of("0123456789") == std::string::npos;
+}
+
 void PhoneBook::search() {
 	std::string	preci;
 
@@ -67,11 +72,11 @@ void PhoneBook::search() {
 		return ;
 	}
 	std::cout << "|  Index  |First Name| Last Name| Nick Name|" << std::endl;
-	for (int i = 0; i <= _index ; i++)
+	for (int i = 0; i < _nbr_friends ; i++)
 		_friends[i].print(i);
 	std::cout << "If you want additionnal information on a friend enter his index. If not type enter." << std::endl;
 	getline(std::cin, preci);
-	if (!preci.empty()){
+	if (!preci.empty() && is_digits(preci)){
 		int number = std::atoi(preci.c_str());
 		if (number >= 0 && number < _nbr_friends)
 			_friends[number].precision();

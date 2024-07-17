@@ -6,19 +6,20 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 15:47:51 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/17 13:58:27 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:38:13 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
 
 void PhoneBook::new_contact() {
-	if (_nbr_friends == 8)
-		_nbr_friends = 0;
-	if (_friends[_nbr_friends].get_infos())
+	if (_index == 8)
+		_index = 0;
+	if (_friends[_index].get_infos())
 	{
-		_nbr_friends++;
-		_index = _nbr_friends - 1;
+		if (_nbr_friends < 8)
+			_nbr_friends++;
+		_index++;
 		std::cout << "New Friend added. It's your " << _nbr_friends << " friend.\n";
 	}
 	else
