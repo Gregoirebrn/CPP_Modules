@@ -17,7 +17,7 @@
 std::string ft_upp(std::string low)
 {
 	for(int i = 0; low[i]; i++)
-		low[i] = toupper(low[i]);
+		low[i] = std::toupper(low[i]);
 	return (low);
 }
 
