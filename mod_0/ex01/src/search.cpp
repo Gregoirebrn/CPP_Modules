@@ -6,11 +6,12 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 15:21:38 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/09 18:30:38 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/17 13:46:57 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
+#include <cstdlib>
 
 void Contact::precision() {
 	std::cout << "First Name     : " << _FirstName << "\n";
@@ -58,7 +59,6 @@ void Contact::print(int index) {
 }
 
 void PhoneBook::search() {
-	int			number;
 	std::string	preci;
 
 	if (_nbr_friends == 0)
@@ -72,7 +72,7 @@ void PhoneBook::search() {
 	std::cout << "If you want additionnal information on a friend enter his index. If not type enter." << std::endl;
 	getline(std::cin, preci);
 	if (!preci.empty()){
-		number = std::stoi(preci, NULL, 10) ;
+		int number = std::atoi(preci.c_str());
 		if (number >= 0 && number < _nbr_friends)
 			_friends[number].precision();
 		else
