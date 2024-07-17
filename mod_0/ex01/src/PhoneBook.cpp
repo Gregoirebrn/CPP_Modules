@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 15:47:51 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/09 18:31:10 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/17 13:58:27 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	main(void)
 	std::cout << "Welcome in Friends, what do you want to do ?" <<std::endl;
 	do
 	{
+		if (std::cin.eof())
+			return (130);
 		std::getline (std::cin,cmd);
 		if (cmd == "ADD")
 			pb.new_contact();
