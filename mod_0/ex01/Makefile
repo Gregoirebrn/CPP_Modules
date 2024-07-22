@@ -14,9 +14,9 @@
 #                                                       VARIABLE                                                       #
 ########################################################################################################################
 
-SRCS		:=	PhoneBook.cpp	\
-				search.cpp		\
-				add.cpp			\
+SRCS		:=	main.cpp		\
+				PhoneBook.cpp	\
+				Contact.cpp		\
 
 SRCS_D		:=	src/
 

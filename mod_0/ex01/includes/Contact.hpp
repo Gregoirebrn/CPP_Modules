@@ -13,6 +13,8 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
+#include <iostream>
+
 class Contact {
 private:
 	std::string _FirstName;
@@ -24,6 +26,7 @@ public:
 	Contact(void);
 	bool	get_infos(void);
 	void	print(int index);
+	std::string prtstr(std::string str);
 	void	precision(void);
 };
 
