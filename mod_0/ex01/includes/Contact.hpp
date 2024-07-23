@@ -24,10 +24,10 @@ private:
 	std::string _DarkestSecret;
 public:
 	Contact(void);
-	bool	get_infos(void);
-	void	print(int index);
-	std::string prtstr(std::string str);
-	void	precision(void);
+	bool		get_infos(void);
+	void		print(int index);
+	std::string	prtstr(std::string str);
+	void		precision(void);
 };
 
 #endif

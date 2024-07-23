@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 15:21:38 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/22 20:47:22 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/23 17:11:39 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	main(void)
 	do
 	{
 		if (std::cin.eof())
-			return (130);
+			return std::cout << "\nexit" << std::endl, 130;;
 		std::getline (std::cin,cmd);
 		if (cmd == "ADD")
 			pb.new_contact();
 		else if (cmd == "SEARCH")
 			pb.search();
-		else if (cmd != "EXIT")
+		else if (cmd != "EXIT" && !(std::cin.eof()))
 			std::cout << "PhoneBook: Command not found, try ADD, SEARCH or EXIT." <<std::endl;
 	} while (cmd != "EXIT");
 	return (0);
