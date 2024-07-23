@@ -20,7 +20,7 @@ SRCS_D		:=	src/
 
 OBJS_D		:=	objs/
 
-OBJS		=	$(SRCS:%.cpp=${OBJ_D}%.o)
+OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
 HEAD		:=	#
 
@@ -39,7 +39,7 @@ all			:	$(BIN)
 $(BIN)		:	$(OBJS_D) $(OBJS)
 				$(CFLAGS) -o $(BIN) $(OBJS)
 
-$(OBJS)	:	$(OBJ_D)%.o: $(SRCS_D)%.cpp Makefile
+$(OBJS_D)%.o: $(SRCS_D)%.cpp Makefile
 				$(CFLAGS) -c $< -o $@
 
 $(OBJS_D)	:
