@@ -6,15 +6,27 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/23 19:12:20 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/24 17:29:18 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Fixed.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed() : _nbr(0)
 {
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int nbr)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_nbr = nbr << _nbr_bits;
+}
+
+Fixed::Fixed(const float nbr)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_nbr = roundf(nbr * (1 << _nbr_bits));
 }
 
 Fixed::~Fixed()
@@ -36,20 +48,23 @@ Fixed &Fixed::operator=(const Fixed &fix) {
 }
 
 int Fixed::getRawBits() const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_nbr);
 }
 
 void Fixed::setRawBits(const int raw) {
-	std::cout << "Setter of Fixed Called" << std::endl;
 	this->_nbr = raw;
 }
 
 float Fixed::toFloat() const {
-	float f_nbr;
-	f_nbr =
+	return _nbr / static_cast<float>((1 << _nbr_bits));
 }
 
-int Fixed::toInt() const {
 
+int Fixed::toInt() const {
+	return this->_nbr >> _nbr_bits;
+}
+
+std::ostream &operator<<(std::ostream &o, Fixed const &fix){
+	o << static_cast<float>(fix.toFloat());
+	return o;
 }
