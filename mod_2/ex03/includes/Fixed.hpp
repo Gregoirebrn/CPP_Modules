@@ -16,15 +16,6 @@
 #include <iostream>
 #include <cmath>
 
-class Point{
-private:
-	const int _x;
-	const int _y;
-public:
-	Point;
-	~Point();
-};
-
 class Fixed{
 private:
 	int 				_nbr;

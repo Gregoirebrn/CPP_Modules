@@ -16,6 +16,7 @@
 
 SRCS		:=	main.cpp		\
 				Fixed.cpp		\
+				Point.cpp		\
 
 SRCS_D		:=	src/
 
@@ -24,6 +25,7 @@ OBJS_D		:=	objs/
 OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
 HEAD		:=	Fixed.hpp	\
+				Point.hpp	\
 
 HEAD_D		:=	includes/
 
