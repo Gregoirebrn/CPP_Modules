@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/25 15:10:20 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:58:58 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,41 +130,37 @@ Fixed Fixed::operator/(const Fixed &fix) const
 
 Fixed &Fixed::operator++(void)
 {
-	Fixed tmp;
-
-	tmp = *this;
-	++*this;
-	return tmp;
-}
-
-Fixed &Fixed::operator--(void)
-{
-	Fixed tmp;
-
-	tmp = *this;
-	--*this;
-	return tmp;
-}
-
-Fixed Fixed::operator++(int digit)
-{
 	this->_nbr++;
 	return *this;
 }
 
-Fixed Fixed::operator--(int digit)
+Fixed &Fixed::operator--(void)
 {
 	this->_nbr--;
 	return *this;
 }
 
-Fixed &Fixed::min(Fixed &a, Fixed &b) {}) {
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp = *this;
+	++*this;
+	return tmp;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed tmp = *this;
+	++*this;
+	return tmp;
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
 	if (a < b)
 		return a;
 	return b;
 }
 
-Fixed &Fixed::max(Fixed &a, Fixed &b) {}) {
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
 	if (a < b)
 		return b;
 	return a;
@@ -176,7 +172,7 @@ const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
 	return b;
 }
 
-const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+const Fixed &Fixed::max	(const Fixed &a, const Fixed &b) {
 	if (a._nbr < b._nbr)
 		return a;
 	return b;

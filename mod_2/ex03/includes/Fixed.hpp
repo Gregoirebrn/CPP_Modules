@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:30:46 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/25 15:12:28 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/25 17:30:18 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 #include <iostream>
 #include <cmath>
+
+class Point{
+private:
+	const int _x;
+	const int _y;
+public:
+	Point;
+	~Point();
+};
 
 class Fixed{
 private:

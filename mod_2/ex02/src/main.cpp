@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:16:19 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/24 17:00:01 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:55:42 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,15 @@ int main( void ) {
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+	int c = 42;
+	std::cout << c;
+	std::cout << " predecre " << --c << std::endl;
+	std::cout << c;
+	std::cout << "preincr" << ++c << std::endl;
+	c++;
+	std::cout << c;
+	std::cout << " postincr " << c << std::endl;
+	c--;
+	std::cout << "postdecre " << c << std::endl;
 	return 0;
 }

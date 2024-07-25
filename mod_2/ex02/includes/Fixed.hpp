@@ -42,8 +42,8 @@ public:
 
 	Fixed &operator++(void);
 	Fixed &operator--(void);
-	Fixed operator++(int digit);
-	Fixed operator--(int digit);
+	Fixed operator++(int);
+	Fixed operator--(int);
 
 	static Fixed& min(Fixed& a, Fixed& b);
 	static Fixed& max(Fixed& a, Fixed& b);
