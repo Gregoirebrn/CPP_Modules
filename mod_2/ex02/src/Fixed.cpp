@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/25 14:47:28 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:10:20 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,16 +158,26 @@ Fixed Fixed::operator--(int digit)
 	return *this;
 }
 
-int Fixed::max(int a, int b) {
-	if (a < b)
-		return b;
-	return a;
-}
-
-Fixed& Fixed::min(Fixed a, int b) {
+Fixed &Fixed::min(Fixed &a, Fixed &b) {}) {
 	if (a < b)
 		return a;
 	return b;
 }
 
-int Fixed::max(const int a, const int b) {}
+Fixed &Fixed::max(Fixed &a, Fixed &b) {}) {
+	if (a < b)
+		return b;
+	return a;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+	if (a._nbr < b._nbr)
+		return a;
+	return b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+	if (a._nbr < b._nbr)
+		return a;
+	return b;
+}

@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:30:46 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/25 14:28:31 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:12:28 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ public:
 	Fixed operator++(int digit);
 	Fixed operator--(int digit);
 
-	static min(Fixed& a, Fixed& b);
-	static max(Fixed& a, Fixed& b);
-	static min(const Fixed& a, const Fixed& b);
-	static max(const Fixed& a, const Fixed& b);
+	static Fixed& min(Fixed& a, Fixed& b);
+	static Fixed& max(Fixed& a, Fixed& b);
+	static const Fixed& min(const Fixed& a, const Fixed& b);
+	static const Fixed& max(const Fixed& a, const Fixed& b);
 
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
