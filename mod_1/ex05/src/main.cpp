@@ -22,10 +22,3 @@ int main(void)
 	Sreamer.complain("CACA");
 	return std::cout << "Out of Complaints !" << std::endl, 0;
 }
-//	if (ac < 2)
-//		return std::cout << "No Complaints to share ?" << std::endl, 1;
-//	for (int i = 0; i < ac; i++)
-//	{
-//		Harl Sreamer;
-//		Sreamer.complain(av[i]);
-//	}

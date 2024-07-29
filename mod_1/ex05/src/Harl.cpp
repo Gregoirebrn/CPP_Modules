@@ -46,9 +46,7 @@ void Harl::error( void )
 }
 
 Harl::Harl( void ){
-	std::cout << "Constructor of Harl Called" << std::endl;
 }
 
 Harl::~Harl( void ) {
-	std::cout << "Destructor of Harl Called" << std::endl;
 }
