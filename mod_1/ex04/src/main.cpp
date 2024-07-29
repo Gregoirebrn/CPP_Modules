@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 16:44:46 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/17 16:10:22 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:44:41 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	fill_fill_replace(std::ifstream& in_file, std::ofstream& outfile, std::stri
 
 int main(int ac, char **av)
 {
-	if (ac < 4 || ac > 4)
+	if (ac != 4)
 		return std::cout << "Wrong parameters" << std::endl, 1;
 
 	std::ifstream in_file(av[1]);

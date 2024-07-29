@@ -25,7 +25,7 @@ OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
 HEAD		:=
 
-HEAD_D		:=	includes/
+HEAD_D		:=	#
 
 CFLAGS		:=	c++ -Wall -Wextra -Werror -std=c++98
 
@@ -41,7 +41,7 @@ $(BIN)		:	$(OBJS_D) $(OBJS)
 				$(CFLAGS) -o $(BIN) $(OBJS)
 
 $(OBJS_D)%.o: $(SRCS_D)%.cpp Makefile
-				$(CFLAGS) -I$(HEAD_D) -c $< -o $@
+				$(CFLAGS) -c $< -o $@
 
 $(OBJS_D)	:
 				@mkdir -p $(OBJS_D)
