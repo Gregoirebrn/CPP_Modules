@@ -6,13 +6,13 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 12:11:53 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/15 16:06:05 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:51:24 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Weapon.hpp"
-#include "../includes/HumanA.hpp"
-#include "../includes/HumanB.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
