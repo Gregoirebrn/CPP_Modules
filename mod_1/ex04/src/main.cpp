@@ -6,13 +6,12 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 16:44:46 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/29 18:44:41 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:45:09 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-# include <string>
 
 void	fill_fill_replace(std::ifstream& in_file, std::ofstream& outfile, std::string s1, std::string s2)
 {
