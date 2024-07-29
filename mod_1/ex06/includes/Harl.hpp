@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 16:21:01 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/17 17:24:48 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:18:03 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ public:
 	void info( void );
 	void warning( void );
 	void error( void );
-	void complain( std::string level );
 	void switcher(std::string level);
+	int  hash_level(std::string level);
 };
 
 #endif

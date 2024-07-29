@@ -6,35 +6,49 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 16:24:01 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/17 17:44:20 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:29:18 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Harl.hpp"
 
-void Harl::switcher(std::string level) {
-	void	(Harl::*fptr[])() = {&Harl::debug, &Harl::error, &Harl::info, &Harl::warning};
-	std::string tab_com[] = {"DEBUG", "ERROR", "INFO", "WARNING"};
-	int i = 0;
-
-	switch (i < 4)
-	{
-		case (tab_com[i].compare(level) == 0)
-	}()
+int Harl::hash_level(std::string level) {
+	unsigned int hash = 0;
+	for (unsigned int i = 0; level[i]; i++){
+		hash = hash * 43 + level[i];
+	}
+	return (hash);
 }
 
-void Harl::complain(std::string level) {
-	void	(Harl::*fptr[])() = {&Harl::debug, &Harl::error, &Harl::info, &Harl::warning};
-	std::string tab_com[] = {"DEBUG", "ERROR", "INFO", "WARNING"};
+void Harl::switcher(const std::string level) {
+	void	(Harl::*fptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-	for (int i = 0; i < 4; i++)
+	switch (hash_level(level))
 	{
-		if (tab_com[i].compare(level) == 0){
-			(this->*fptr[i])();
-			return ;
+		case 238090211: {
+			for (int i = 0; i < 4; i++)
+				(this->*fptr[i])();
+			break;
 		}
+		case 5951322: {
+			for (int i = 1; i < 4; i++)
+				(this->*fptr[i])();
+			break;
+		}
+		case 1455067208: {
+			for (int i = 2; i < 4; i++)
+				(this->*fptr[i])();
+			break;
+		}
+		case 242571940: {
+			for (int i = 3; i < 4; i++)
+				(this->*fptr[i])();
+			break;
+		}
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
-	return ;
 }
 
 void Harl::debug( void ) {
@@ -57,9 +71,7 @@ void Harl::error( void )
 }
 
 Harl::Harl( void ){
-	std::cout << "Constructor of Harl Called" << std::endl;
 }
 
 Harl::~Harl( void ) {
-	std::cout << "Destructor of Harl Called" << std::endl;
 }

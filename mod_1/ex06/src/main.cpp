@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:16:19 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/17 17:46:46 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:28:34 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,9 @@
 
 int main(int ac, char **av)
 {
-//	Harl Sreamer;
-//	Sreamer.complain("ERROR");
-//	Sreamer.complain("WARNING");
-//	Sreamer.complain("DEBUG");
-//	Sreamer.complain("INFO");
-//	Sreamer.complain("CACA");
 	if (ac < 2)
 		return std::cout << "No Complaints to share ?" << std::endl, 1;
-	for (int i = 0; i < ac; i++)
-	{
-		Harl Sreamer;
-		Sreamer.complain(av[i]);
-	}
-	return std::cout << "Out of Complaints !" << std::endl, 0;
+	Harl Sreamer;
+	Sreamer.switcher(av[1]);
+	return 0;
 }
