@@ -14,8 +14,8 @@
 
 int	main(void)
 {
-//	Zombie zomben("Ben");
-//	zomben.annonce();
+	Zombie zomben("Ben");
+	zomben.annonce();
 
 	Zombie* zomkaa = newZombie("Kaan");
 	randomChump("Greg");
