@@ -6,14 +6,19 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/30 16:26:48 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:58:29 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _hitpoints(10), _energypoints(10), _attackdamage(0) {
+ClapTrap::ClapTrap() : _name("default_name"), _hitpoints(10), _energypoints(10), _attackdamage(0) {
 	std::cout << "Default constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name) : _hitpoints(10), _energypoints(10), _attackdamage(0) {
+	this->_name = name;
+	std::cout << "Second constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
@@ -31,6 +36,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &origine) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &origine)
 		return (*this);
+	this->_name = origine._name;
 	this->_hitpoints = origine._hitpoints;
 	this->_energypoints = origine._energypoints;
 	this->_attackdamage = origine._attackdamage;
