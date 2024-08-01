@@ -14,7 +14,6 @@
 
 Dog::Dog() : Animal("Dog"){
 	std::cout << "Dog default constructor called" << std::endl;
-	std::cout << this->getType() << std::endl;
 }
 
 Dog::~Dog() {
