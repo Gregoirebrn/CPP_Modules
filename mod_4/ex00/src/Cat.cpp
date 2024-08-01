@@ -6,18 +6,18 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/31 15:13:52 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/01 13:23:58 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() :_type("Cat") {
+Cat::Cat() : Animal("Cat") {
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::~Cat() {
-	std::cout << "Default destructor called" << std::endl;
+	std::cout << "Cat default destructor called" << std::endl;
 }
 
 Cat::Cat(const Cat &origine) {

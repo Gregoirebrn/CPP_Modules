@@ -6,7 +6,7 @@
 #    By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/06 02:20:07 by grebrune          #+#    #+#              #
-#    Updated: 2024/07/31 14:52:19 by grebrune         ###   ########.fr        #
+#    Updated: 2024/08/01 13:33:01 by grebrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRCS		:=	main.cpp		\
 				Animal.cpp		\
 				Cat.cpp			\
 				Dog.cpp			\
+				WrongCat.cpp	\
+				WrongAnimal.cpp	\
 
 SRCS_D		:=	src/
 
@@ -28,6 +30,8 @@ OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 HEAD		:=	Animal.hpp		\
 				Cat.hpp			\
 				Dog.hpp			\
+				WrongCat.hpp	\
+				WrongAnimal.hpp	\
 
 HEAD_D		:=	includes/
 
