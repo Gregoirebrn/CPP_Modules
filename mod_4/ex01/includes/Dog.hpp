@@ -26,6 +26,7 @@ public:
 	~Dog();
 	Dog (const Dog &);
 	Dog &operator=(const Dog &origine);
+	void makeSound() const;
 };
 
 #endif

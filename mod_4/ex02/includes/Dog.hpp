@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:54:25 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/31 15:13:52 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:03:05 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ public:
 	~Dog();
 	Dog (const Dog &);
 	Dog &operator=(const Dog &origine);
+
+	virtual void makeSound() const;
+
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:54:22 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/01 13:59:33 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:03:05 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ public:
 	~Cat();
 	Cat (const Cat &);
 	Cat &operator=(const Cat &origine);
+
+	virtual void makeSound() const;
 };
 
 #endif

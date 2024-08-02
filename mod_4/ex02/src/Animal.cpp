@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/31 15:30:17 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:02:45 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,4 @@ Animal &Animal::operator=(const Animal &origine) {
 std::string const Animal::getType() const
 {
 	return this->_type;
-}
-
-void Animal::makeSound() const {
-	if (this->getType() == "Cat")
-		std::cout << "Meow?!" << std::endl;
-	else if (this->getType() == "Dog")
-		std::cout << "Waaff?!" << std::endl;
-	else
-		std::cout << "Wazaaaaaaaaaaa?!" << std::endl;
-	return ;
 }

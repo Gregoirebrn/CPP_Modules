@@ -36,3 +36,7 @@ Dog &Dog::operator=(const Dog &origine) {
 	this->brain = origine.brain;
 	return (*this);
 }
+
+void Dog::makeSound() const {
+		std::cout << "Waaff?!" << std::endl;
+}

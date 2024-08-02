@@ -32,3 +32,7 @@ Dog &Dog::operator=(const Dog &origine) {
 	this->_type = origine._type;
 	return (*this);
 }
+
+void Dog::makeSound() const {
+	std::cout << "Waaff?!" << std::endl;
+}

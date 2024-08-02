@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:48:16 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/01 13:27:30 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:56:10 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Animal &operator=(const Animal &origine);
 
 	std::string const getType() const ;
-	void makeSound() const;
+	virtual void makeSound() const = 0;
 };
 
 #endif

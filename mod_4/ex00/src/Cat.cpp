@@ -32,3 +32,8 @@ Cat &Cat::operator=(const Cat &origine) {
 	this->_type = origine._type;
 	return (*this);
 }
+
+void Cat::makeSound() const {
+	std::cout << "Meow?!" << std::endl;
+}
+

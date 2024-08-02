@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/01 14:09:15 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:58:50 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,8 @@ Cat &Cat::operator=(const Cat &origine) {
 	this->_type = origine._type;
 	this->brain = origine.brain;
 	return (*this);
+}
+
+void Cat::makeSound() const {
+		std::cout << "Meow?!" << std::endl;
 }

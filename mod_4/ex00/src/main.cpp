@@ -26,6 +26,7 @@ int main()
 	std::cout << "---------getType-------------------" << " " << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
+	std::cout << meta->getType() << " " << std::endl;
 
 	std::cout << "---------makeSound-----------------" << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
