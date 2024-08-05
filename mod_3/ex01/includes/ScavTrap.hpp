@@ -22,7 +22,7 @@ public:
 	ScavTrap(std::string name);
 	~ScavTrap();
 
-	ScavTrap (const ScavTrap &);
+	ScavTrap (const ScavTrap &origine);
 	ScavTrap &operator=(const ScavTrap &fix);
 
 	void attack(const std::string& target);
