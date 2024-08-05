@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/05 17:39:33 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/05 19:01:19 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &origine) {
 }
 
 void ClapTrap::attack(const std::string &target) {
+	if (this->_hitpoints <= 0) {
+		std::cout << "ClapTrap " << this->_name << " can not attack he is dead!" << std::endl;
+		return ;
+	}
 	if (this->_energypoints <= 0) {
 		std::cout << "ClapTrap " << this->_name << " does not have enough energy points!" << std::endl;
 		return ;
@@ -52,7 +56,7 @@ void ClapTrap::attack(const std::string &target) {
 
 void ClapTrap::takeDamage(unsigned int amount) {
 	if (this->_hitpoints <= 0) {
-		std::cout << "ClapTrap " << this->_name << " is already dead!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " can not take damage he is already dead!" << std::endl;
 		return ;
 	}
 	if (this->_hitpoints < amount)
@@ -69,7 +73,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		return ;
 	}
 	if (this->_hitpoints <= 0) {
-		std::cout << "ClapTrap " << this->_name << " is already dead!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " can not be repaired he is already dead!" << std::endl;
 		return ;
 	}
 	this->_energypoints--;
