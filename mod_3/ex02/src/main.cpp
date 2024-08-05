@@ -13,10 +13,12 @@
 #include "ScavTrap.hpp"
 
 int main( void ) {
+	std::cout << "---------------Constructor----------------" << std::endl;
 	ClapTrap Ben("BEN");
 	ClapTrap Kaan("KAAN");
 	ScavTrap Greg("GOYO");
 
+	std::cout << "-------------------Tests------------------" << std::endl;
 	Ben.attack("KAAN");
 	Kaan.takeDamage(5);
 	Kaan.beRepaired(4);
@@ -26,4 +28,6 @@ int main( void ) {
 	Kaan.attack("GOYO");
 	Greg.takeDamage(5);
 	Greg.beRepaired(4);
+
+	std::cout << "----------------Destructor----------------" << std::endl;
 }
