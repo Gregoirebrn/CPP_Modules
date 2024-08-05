@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:42:55 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/31 10:33:05 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:19:05 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &origine) {
+ScavTrap::ScavTrap(const ScavTrap &origine) : ClapTrap(origine) {
 	std::cout << "ScavTrap Copy constructor operator called" << std::endl;
 	*this = origine;
 }
