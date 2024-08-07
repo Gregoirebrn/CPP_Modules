@@ -26,29 +26,23 @@ WrongAnimal::~WrongAnimal() {
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &origine) {
-	std::cout << "Copy constructor operator called" << std::endl;
-	this->_type = origine._type;
+	std::cout << "WrongAnimal Copy constructor operator called" << std::endl;
+	*this = origine;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &origine) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
 	if (this == &origine)
 		return (*this);
 	this->_type = origine._type;
 	return (*this);
 }
 
-std::string const WrongAnimal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return this->_type;
 }
 
 void WrongAnimal::makeSound() const {
-	if (this->getType() == "Cat")
-		std::cout << "Meow?!" << std::endl;
-	else if (this->getType() == "Dog")
-		std::cout << "Waaff?!" << std::endl;
-	else
-		std::cout << "Wazaaaaaaaaaaa?!" << std::endl;
-	return ;
+	std::cout << "Wazaaaaaaaaaaa?!" << std::endl;
 }
