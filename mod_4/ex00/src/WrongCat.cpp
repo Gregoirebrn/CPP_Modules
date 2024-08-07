@@ -6,13 +6,13 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/07 14:33:12 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:43:09 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : _type("WrongCat") {
+WrongCat::WrongCat() : WrongAnimal("WrongCat") {
 	std::cout << "WrongCat default constructor called" << std::endl;
 }
 
