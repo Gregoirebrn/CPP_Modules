@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/07 14:45:47 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:45:56 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ WrongCat::~WrongCat() {
 	std::cout << "WrongCat default destructor called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &origine) {
+WrongCat::WrongCat(const WrongCat &origine) : WrongAnimal(origine){
 	std::cout << "Copy constructor operator called" << std::endl;
 	this->_type = origine._type;
 }

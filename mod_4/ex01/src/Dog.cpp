@@ -22,7 +22,7 @@ Dog::~Dog() {
 	std::cout << "Dog default destructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &origine) {
+Dog::Dog(const Dog &origine) : Animal(origine){
 	std::cout << "Copy constructor operator called" << std::endl;
 	this->_type = origine._type;
 	this->brain = origine.brain;

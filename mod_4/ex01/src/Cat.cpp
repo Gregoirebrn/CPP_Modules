@@ -22,7 +22,7 @@ Cat::~Cat() {
 	std::cout << "Cat default destructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &origine) {
+Cat::Cat(const Cat &origine) : Animal(origine){
 	std::cout << "Copy constructor operator called" << std::endl;
 	this->_type = origine._type;
 	this->brain = origine.brain;
