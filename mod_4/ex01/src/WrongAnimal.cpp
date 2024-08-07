@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/01 13:34:11 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/07 14:45:32 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &origine) {
 	return (*this);
 }
 
-std::string const WrongAnimal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return this->_type;
 }

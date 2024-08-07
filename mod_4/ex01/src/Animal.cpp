@@ -26,19 +26,19 @@ Animal::~Animal() {
 }
 
 Animal::Animal(const Animal &origine) {
-	std::cout << "Copy constructor operator called" << std::endl;
-	this->_type = origine._type;
+	std::cout << "Animal Copy constructor operator called" << std::endl;
+	*this = origine;
 }
 
 Animal &Animal::operator=(const Animal &origine) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Animal Copy assignment operator called" << std::endl;
 	if (this == &origine)
 		return (*this);
 	this->_type = origine._type;
 	return (*this);
 }
 
-std::string const Animal::getType() const
+std::string Animal::getType() const
 {
 	return this->_type;
 }
