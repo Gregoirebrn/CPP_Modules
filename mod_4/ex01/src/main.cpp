@@ -19,11 +19,13 @@
 int main()
 {
 	std::cout << "---------Constructor---------------" << " " << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	Dog *dog1 = new Dog();
+	Dog *dog2 = new Dog();
+	std::cout << "-------------Copy------------------" << " " << std::endl;
+	*dog2 = *dog1;
 	std::cout << "---------Destructor----------------" << " " << std::endl;
-	delete j;//should not create a leak
-	delete i;
+	delete dog1;
+	delete dog2;
 	std::cout << "---------End of Test---------------" << " " << std::endl;
 	return 0;
 }
