@@ -22,7 +22,7 @@ public:
 	FragTrap(std::string name);
 	~FragTrap();
 
-	FragTrap (const FragTrap &);
+	FragTrap (const FragTrap &origine);
 	FragTrap &operator=(const FragTrap &fix);
 
 	void attack(const std::string& target);

@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:42:55 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/31 10:59:29 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:21:18 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,30 @@
 FragTrap::FragTrap() {
 	this->_name = "default_name";
 	this->_hitpoints = 100;
-	this->_energypoints = 50;
-	this->_attackdamage = 20;
-	std::cout << "FragTrap default constructor called" << std::endl;
+	this->_energypoints = 100;
+	this->_attackdamage = 30;
+	std::cout << "FragTrap second constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) {
 	this->_name = name;
 	this->_hitpoints = 100;
-	this->_energypoints = 50;
-	this->_attackdamage = 20;
-	std::cout << "FragTrap second constructor called" << std::endl;
+	this->_energypoints = 100;
+	this->_attackdamage = 30;
+	std::cout << "FragTrap default constructor called" << std::endl;
 }
 
 FragTrap::~FragTrap() {
 	std::cout << "FragTrap destructor called" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &origine) {
-	std::cout << "Copy constructor operator called" << std::endl;
-	this->_hitpoints = origine._hitpoints;
-	this->_energypoints = origine._energypoints;
-	this->_attackdamage = origine._attackdamage;
+FragTrap::FragTrap(const FragTrap &origine) : ClapTrap(origine) {
+	std::cout << "FragTrap Copy constructor operator called" << std::endl;
+	*this = origine;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &origine) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "FragTrap Copy assignment operator called" << std::endl;
 	if (this == &origine)
 		return (*this);
 	this->_name = origine._name;
@@ -51,8 +49,14 @@ FragTrap &FragTrap::operator=(const FragTrap &origine) {
 }
 
 void FragTrap::attack(const std::string &target) {
-	if (this->_energypoints <= 0)
+	if (this->_hitpoints <= 0) {
+		std::cout << "FragTrap " << this->_name << " can not attack he is already dead!" << std::endl;
+		return ;
+	}
+	if (this->_energypoints <= 0) {
 		std::cout << "FragTrap " << this->_name << " does not have enough energy points!" << std::endl;
+		return ;
+	}
 	this->_energypoints--;
 	std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attackdamage << " points of damage!" << std::endl;
 }

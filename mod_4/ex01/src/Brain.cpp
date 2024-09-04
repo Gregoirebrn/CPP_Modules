@@ -21,13 +21,12 @@ Brain::~Brain() {
 }
 
 Brain::Brain(const Brain &origine) {
-	std::cout << "Copy constructor operator called" << std::endl;
-	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = origine._ideas[i];
+	std::cout << "Brain Copy constructor operator called" << std::endl;
+	*this = origine;
 }
 
 Brain &Brain::operator=(const Brain &origine) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Brain Copy assignment operator called" << std::endl;
 	if (this == &origine)
 		return (*this);
 	for (int i = 0; i < 100; i++)
