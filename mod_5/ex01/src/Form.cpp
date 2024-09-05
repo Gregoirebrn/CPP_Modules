@@ -6,11 +6,12 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:05:09 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/04 19:03:51 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:25:11 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(const std::string &name, int eg, int sg) : _name(name), _s_grade(sg), _e_grade(eg)
 {

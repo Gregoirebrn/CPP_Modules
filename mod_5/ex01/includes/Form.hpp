@@ -6,14 +6,16 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:06:40 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/04 19:18:07 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:25:46 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "Bureaucrat.hpp"
+#include <iostream>
+
+class Bureaucrat;
 
 class Form{
 private:

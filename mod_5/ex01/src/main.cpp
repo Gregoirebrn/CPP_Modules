@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:42:23 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/04 19:14:13 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:31:12 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ int main()
 	{
 		Bureaucrat k("kaan", 150);
 		std::cout << k << std::endl;
+		std::cout << "AAAAAAAAAA" << std::endl;
 		Form f("Proce", 1, 140);
+		std::cout << "BBBBBBBBBB" << std::endl;
 		f.beSigned(k);
+		std::cout << "CCCCCCCCCC" << std::endl;
 		k.signForm(f);
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cerr << "Exeption : " << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch (std::exception &e)
 	{
 		std::cerr << "Exeption : " << e.what() << std::endl;
 	}
