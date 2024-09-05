@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,17 +17,17 @@
 
 class Bureaucrat;
 
-class Form{
+class AForm{
 private:
 	const std::string	_name;
 	bool				_signed;
 	const int					_s_grade;
 	const int					_e_grade;
 public:
-	Form(const std::string &name, int eg, int sg);
-	~Form();
-	Form (const Form &origine);
-	Form &operator=(const Form &origine);
+	AForm(const std::string &name, int eg, int sg);
+	~AForm();
+	AForm (const AForm &origine);
+	AForm &operator=(const AForm &origine);
 
 	std::string getName() const ;
 	int		getSigned() const ;

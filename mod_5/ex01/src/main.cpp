@@ -19,7 +19,7 @@ int main()
 		Bureaucrat k("kaan", 150);
 		std::cout << k << std::endl;
 		std::cout << "AAAAAAAAAA" << std::endl;
-		Form f("Proce", 1, 140);
+		AForm f("Proce", 1, 140);
 		std::cout << "BBBBBBBBBB" << std::endl;
 		f.beSigned(k);
 		std::cout << "CCCCCCCCCC" << std::endl;

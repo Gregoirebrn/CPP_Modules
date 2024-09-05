@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,56 +13,56 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(const std::string &name, int eg, int sg) : _name(name), _s_grade(sg), _e_grade(eg)
+AForm::AForm(const std::string &name, int eg, int sg) : _name(name), _s_grade(sg), _e_grade(eg)
 {
-	std::cout << "Form second constructor called" << std::endl;
+	std::cout << "AForm second constructor called" << std::endl;
 	this->_signed = false; }
 
-Form::~Form() {
-	std::cout << "Form default destructor called" << std::endl; }
+AForm::~AForm() {
+	std::cout << "AForm default destructor called" << std::endl; }
 
-Form::Form(const Form &origine) : _name(origine._name) , _s_grade(origine._s_grade), _e_grade(origine._e_grade) {
+AForm::AForm(const AForm &origine) : _name(origine._name) , _s_grade(origine._s_grade), _e_grade(origine._e_grade) {
 	std::cout << "Copy constructor operator called" << std::endl;
 	_signed = origine._signed; }
 
-Form &Form::operator=(const Form &origine) {
+AForm &AForm::operator=(const AForm &origine) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &origine)
 		this->_signed = origine._signed;
 	return (*this); }
 
-std::ostream & operator << (std::ostream &out, const Form &c)
+std::ostream & operator << (std::ostream &out, const AForm &c)
 {
 	out << c.getName() << ", is signed " << c.getSigned() << " required to execute it " << c.getEGrade() << " grade required to sign it " << c.getSGrade() << ".";
 	return out; }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return this->_name; }
 
-int Form::getEGrade() const
+int AForm::getEGrade() const
 {
 	return (this->_e_grade); }
 
-int Form::getSGrade() const
+int AForm::getSGrade() const
 {
 	return (this->_s_grade); }
 
-int Form::getSigned() const
+int AForm::getSigned() const
 {
 	return (this->_signed); }
 
-void Form::beSigned(const Bureaucrat &origine)
+void AForm::beSigned(const Bureaucrat &origine)
 {
 	if (origine.getGrade() >= this->_s_grade)
-		throw (Form::GradeTooLowException());
+		throw (AForm::GradeTooLowException());
 	this->_signed = true; }
 
-const char *Form::GradeTooHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
 	return ("The grade is Too High."); }
 
-const char *Form::GradeTooLowException::what() const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
 	return ("The grade is Too Low."); }
 
