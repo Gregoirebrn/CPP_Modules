@@ -33,7 +33,7 @@ public:
 	void	decr_grade(int minus);
 	static void	check_grade(int grade);
 
-	void	signForm(const Form &Form) const ;
+	void	signForm(const AForm &Form) const ;
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char* what() const throw();
