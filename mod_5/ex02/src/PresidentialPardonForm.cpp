@@ -6,14 +6,17 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 18:43:04 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/05 18:55:49 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/06 19:00:09 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string &name) : AForm(name, 145, 137), _target(name)
-{
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("default") {
+	std::cout << "PresidentialPardonForm second constructor called" << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("PresidentialPardonForm", 25, 5) , _target(target) {
 	std::cout << "PresidentialPardonForm second constructor called" << std::endl;
 }
 
@@ -27,11 +30,13 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &ori
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &origine) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &origine)
-		*this = origine;
+	{
+		this->AForm::operator=(origine);
+		_target = origine._target;
+	}
 	return (*this);
 }
 
-std::ostream & operator << (std::ostream &out, const PresidentialPardonForm &c) {
-	out << c.getName() << ", is signed " << c.getSigned() << " required to execute it " << c.getEGrade() << " grade required to sign it " << c.getSGrade() << ".";
-	return out;
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

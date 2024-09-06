@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 17:27:09 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/05 17:30:08 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/06 19:00:09 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 class PresidentialPardonForm : public AForm {
 private:
 	std::string	_target;
+	PresidentialPardonForm();
 public:
-	PresidentialPardonForm(std::string &name);
+	PresidentialPardonForm(std::string const &name);
 	~PresidentialPardonForm();
 	PresidentialPardonForm (const PresidentialPardonForm &origine);
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &origine);
 
-	void	execute(const PresidentialPardonForm &base) const ;
+	void	execute(Bureaucrat const & executor) const ;
 };
 
 #endif
