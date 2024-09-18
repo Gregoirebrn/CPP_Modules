@@ -12,6 +12,7 @@ OBJS_D		:=	objs/
 OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
 HEAD		:=	Serializer.hpp		\
+				Data.hpp			\
 
 HEAD_D		:=	includes/
 
