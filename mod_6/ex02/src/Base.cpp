@@ -70,22 +70,22 @@ void Base::identify(Base &p)
 	catch (std::exception &cb)
 	{
 		std::cout << "It's not a A class" << cb.what() << std::endl;
-	}
-	try {
-		Base z = dynamic_cast<B &> (p);
-		std::cout << "Conversion to B class all good!" << std::endl;
-	}
-	catch (std::exception &cb)
-	{
-		std::cout << "It's not a B class" << cb.what() << std::endl;
-	}
-	try {
-		Base z = dynamic_cast<C &> (p);
-		std::cout << "Conversion to C class all good!" << std::endl;
-	}
-	catch (std::exception &cb)
-	{
-		std::cout << "It's not a C class" << cb.what() << std::endl;
+		try {
+			Base z = dynamic_cast<B &> (p);
+			std::cout << "Conversion to B class all good!" << std::endl;
+		}
+		catch (std::exception &cb)
+		{
+			std::cout << "It's not a B class" << cb.what() << std::endl;
+			try {
+				Base z = dynamic_cast<C &> (p);
+				std::cout << "Conversion to C class all good!" << std::endl;
+			}
+			catch (std::exception &cb)
+			{
+				std::cout << "It's not a C class" << cb.what() << std::endl;
+			}
+		}
 	}
 }
 

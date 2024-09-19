@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 16:14:22 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/19 18:49:19 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/19 18:52:57 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
 	int a = 7;
-	int b = 14;
+	int b = 7;
 
 	std::cout << "----------------SWAP---------------" << std::endl;
 	std::cout << "a = " << a << std::endl;
