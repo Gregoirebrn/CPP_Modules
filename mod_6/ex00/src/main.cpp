@@ -14,9 +14,8 @@
 
 int main(int ac, char **av)
 {
-	(void)ac;
 	if (ac != 2)
-		return (std::cout << "Enter a argument please." << std::endl, 0);
+		return (std::cout << "Wrong number of argument." << std::endl, 0);
 	ScalarConverter::convert(av[1]);
 	return (0);
 }

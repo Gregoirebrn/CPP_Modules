@@ -31,50 +31,77 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &origine) {
 	return (*this);
 }
 
-static void ToDouble(double d, unsigned long len) {
-	int i = (int) d;
-
-	if (d > 1.79768e+308)
-		return (std::cout << "double: " << "+inf" << std::endl, (void)0);
-	if (i == d && len <= 7)
-		std::cout << "double: " << d << ".0" << std::endl;
+void print_types(char c, int i, float f, double d) {
+	//char
+	if (i > 127 || i < 0)
+		std::cout << "char: impossible" << std::endl;
+	else if (i < 9 || (i > 11 && i < 32) || i == 127)
+		std::cout << "char: Non displayable" << std::endl;
 	else
-		std::cout << "double: " << d << std::endl;
-}
-
-static void ToFloat(float f, unsigned long len) {
-	int i = (int) f;
-
-	if (i == f && len <= 7)
-		std::cout << "float: " << f << ".0f"<< std::endl;
-	else
-		std::cout << "float: " << f << "f" << std::endl;
-}
-
-static void ToInt(double i) {
-	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+		std::cout << "char: '" << c << "'" << std::endl;
+	//int
+	if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
 		std::cout << "int: impossible" << std::endl;
 	else
-		std::cout << "int: " << static_cast<int>(i) << std::endl;
+		std::cout << "int: " << i << std::endl;
+	//float
+	if (f < 1000000 && f > -1000000 && i - d == 0) {
+		std::cout << "float: " << f << ".0f" << std::endl;
+		std::cout << "double: " << d << ".0" << std::endl;
+	}
+	else {
+		std::cout << "float: " << f << "f" << std::endl;
+		std::cout << "double: " << d << std::endl;
+	}
+	//double
 }
 
-static void ToChar(double type, std::string str, int i) {
-	if (type > 127)
-		return (std::cout << "char: impossible" << std::endl, (void)0);
-	if (i >= 9 && i <= 11)
-			return (std::cout << "char: '" << static_cast<char>(type) << "'" << std::endl, (void)0);
-	if (i > 0 && i < 32)
-		return (std::cout << "char: Non displayable" << std::endl, (void)0);
-	if (((str[0] < 32 || str[0] > 126) || str[0] == '0') && !str[1])
-		std::cout << "char: Non displayable" << std::endl;
-	else if (!str[1])
-		std::cout << "char: '" << str[0] << "'" << std::endl;
-	else
-	{
-		if (((char)type < 32 || (char)type > 126))
-			std::cout << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: '" << static_cast<char>(type) << "'" << std::endl;
+static bool ToDouble(std::string str) {
+	std::stringstream ss(str);
+	double d;
+	ss >> d;
+	if (!ss.eof() || ss.fail())
+		return (false);
+	else {
+		std::cout << "Is A Double" << std::endl;
+		print_types(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d);
+		return true;
+	}
+}
+
+static bool ToFloat(std::string str) {
+	std::stringstream ss(str);
+	float f;
+	ss >> f;
+	if (ss.eof() || ss.fail() || str[str.length() - 1] != 'f')
+		return (false);
+	else {
+		std::cout << "Is A Float" << std::endl;
+		print_types(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f));
+		return true;
+	}
+}
+
+static bool ToInt(std::string str) {
+	std::stringstream ss(str);
+	int i;
+	ss >> i;
+	if (!ss.eof() || ss.fail())
+		return (false);
+	else {
+		std::cout << "Is A Int" << std::endl;
+		print_types(static_cast<int>(i), i, static_cast<float>(i), static_cast<double>(i));
+		return true;
+	}
+}
+
+static bool ToChar(std::string str) {
+	if (str[1] || (str[0] >= '0' && str[0] <= '9'))
+		return (false);
+	else {
+		std::cout << "Is A Char" << std::endl;
+		print_types(str[0], static_cast<int>(str[0]), static_cast<float>(str[0]), static_cast<double>(str[0]));
+		return true;
 	}
 }
 
@@ -113,30 +140,34 @@ static void putimp() {
 	std::cout << "double: impossible" << std::endl;
 }
 
-static int check_cast(float f, std::string str) {
-	std::ostringstream ss;
-	ss << f;
-	std::string s(ss.str());
-	std::cout << "float f " << f << std::endl;
-	std::cout << "float to String : " << s << std::endl;
-	if (s == "+inf" || s == "inf" || s == "nanf" || s == "-inf")
-		return 0;
-	if (s != str)
-		return 1;
-	return 0;
-}
-
-void ScalarConverter::convert(std::string str)
-{
+void ScalarConverter::convert(std::string str) {
+	if (ToChar(str))
+		return (void)0;
+	if (ToInt(str))
+		return (void)0;
+	if (ToFloat(str))
+		return (void)0;
+	if (ToDouble(str))
+		return (void)0;
 	if (spec_case(str))
 		return ;
-	std::stringstream ss(str);
-	double type;
-	ss >> type;
-	if (check_cast(static_cast<float>(type), str))
-		return (putimp(), (void)0);
-	ToChar(type, str, static_cast<int>(type));
-	ToInt(type);
-	ToFloat(static_cast<float>(type), str.length());
-	ToDouble(type, str.length());
+	putimp();
 }
+
+//	if (check_cast(static_cast<float>(type), str))
+//		return (putimp(), (void)0);
+
+//static int check_cast(float f, std::string str) {
+//	std::ostringstream ss;
+//	ss << f;
+//	std::string s(ss.str());
+//	std::cout << "float f " << f << std::endl;
+//	std::cout << "float to String : " << s << std::endl;
+//	std::cout << "String str : " << str << std::endl;
+////	(void)str;
+//	if (s == "+inf" || s == "inf" || s == "nanf" || s == "-inf")
+//		return 0;
+//	if (s != str && str[1])
+//		return 1;
+//	return 0;
+//}

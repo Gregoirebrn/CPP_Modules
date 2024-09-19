@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <limits>
 #include <bits/stdc++.h>
-
 
 class ScalarConverter{
 private:
