@@ -57,18 +57,18 @@ int AForm::getSigned() const {
 	return (this->_signed);
 }
 
-void AForm::beSigned(const Bureaucrat &origine) {
-	if (origine.getGrade() >= this->_s_grade)
+void AForm::beSigned(const ScalarConverter &origine) {
+	if (origine.getGrade() > this->_s_grade)
 		throw (AForm::GradeTooLowException());
 	this->_signed = true;
 }
 
-void AForm::is_grade_exe(Bureaucrat const & executor) const
+void AForm::is_grade_exe(ScalarConverter const & executor) const
 {
-	if (executor.getGrade() < _s_grade)
+	if (!this->getSigned())
+		throw AForm::IsNotSigned();
+	if (executor.getGrade() < _e_grade)
 		throw AForm::GradeTooLowException() ;
-	if (executor.getGrade() > _e_grade)
-		throw AForm::GradeTooHighException() ;
 }
 
 const char *AForm::GradeTooHighException::what() const throw() {
@@ -77,5 +77,9 @@ const char *AForm::GradeTooHighException::what() const throw() {
 
 const char *AForm::GradeTooLowException::what() const throw() {
 	return ("The grade is Too Low.");
+}
+
+const char *AForm::IsNotSigned::what() const throw() {
+	return ("The Form is not signed.");
 }
 

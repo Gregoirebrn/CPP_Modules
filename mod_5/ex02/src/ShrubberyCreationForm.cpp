@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:45:12 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/06 19:02:34 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:23:58 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-	if (is_grade_exe())
-		throw AForm::GradeTooLowException;
+int	ShrubberyCreationForm::execute(ScalarConverter const & executor) const {
+	is_grade_exe(executor);
 	std::ofstream outfile;
 	outfile.open((_target + "_shrubbery").c_str());
 	outfile << "       _-_\n"
@@ -52,5 +51,6 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 			<< "  _ -  | |   -_\n"
 			<< "      // \\\\" << std::endl;
 	outfile.close();
+	return (0);
 }
 

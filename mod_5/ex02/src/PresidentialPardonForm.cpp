@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 18:43:04 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/06 19:00:09 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:40:22 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+int PresidentialPardonForm::execute(ScalarConverter const & executor) const {
+	is_grade_exe(executor);
 	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	return (0);
 }

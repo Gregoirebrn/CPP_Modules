@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                         :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,76 +12,76 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
+ScalarConverter::ScalarConverter(const std::string &name, int grade) : _name(name)
 {
-	std::cout << "Bureaucrat second constructor called" << std::endl;
+	std::cout << "ScalarConverter second constructor called" << std::endl;
 	check_grade(grade);
 	this->_grade = grade;
 }
 
-Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat default destructor called" << std::endl;
+ScalarConverter::~ScalarConverter() {
+	std::cout << "ScalarConverter default destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &origine) : _name(origine._name){
+ScalarConverter::ScalarConverter(const ScalarConverter &origine) : _name(origine._name){
 	std::cout << "Copy constructor operator called" << std::endl;
 	this->_grade = origine._grade;
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &origine) {
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &origine) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &origine)
 		this->_grade = origine._grade;
 	return (*this);
 }
 
-std::ostream & operator << (std::ostream &out, const Bureaucrat &c)
+std::ostream & operator << (std::ostream &out, const ScalarConverter &c)
 {
 	out << c.getName() << ", bureaucrat grade " << c.getGrade() << ".";
 	return out;
 }
 
-std::string Bureaucrat::getName() const
+std::string ScalarConverter::getName() const
 {
 	return this->_name;
 }
 
-int Bureaucrat::getGrade() const
+int ScalarConverter::getGrade() const
 {
 	return (this->_grade);
 }
 
-void	Bureaucrat::check_grade(int grade)
+void	ScalarConverter::check_grade(int grade)
 {
 	if (grade < 1)
-		throw (Bureaucrat::GradeTooHighException());
+		throw (ScalarConverter::GradeTooHighException());
 	if (grade > 150)
-		throw (Bureaucrat::GradeTooLowException());
+		throw (ScalarConverter::GradeTooLowException());
 }
 
-void Bureaucrat::incr_grade(int add)
+void ScalarConverter::incr_grade(int add)
 {
 	this->_grade += add;
 	check_grade(_grade);
 }
 
-void Bureaucrat::decr_grade(int minus)
+void ScalarConverter::decr_grade(int minus)
 {
 	this->_grade -= minus;
 	check_grade(_grade);
 }
 
-const char *Bureaucrat::GradeTooHighException::what() const throw()
+const char *ScalarConverter::GradeTooHighException::what() const throw()
 {
 	return ("The grade is Too High.");
 }
 
-const char *Bureaucrat::GradeTooLowException::what() const throw()
+const char *ScalarConverter::GradeTooLowException::what() const throw()
 {
 	return ("The grade is Too Low.");
 }
 
-void Bureaucrat::signForm(const AForm &Form) const
+void ScalarConverter::signForm(const AForm &Form) const
 {
 	if (Form.getSigned())
 		std::cout << _name << " signed " << Form.getName() << "." << std::endl;
@@ -89,4 +89,9 @@ void Bureaucrat::signForm(const AForm &Form) const
 		std::cout << _name << " couldn't sign " << Form.getName() << " because ";
 		throw (AForm::GradeTooLowException());
 	}
+}
+
+void ScalarConverter::executeForm(const AForm &form) const {
+	if (!form.execute(*this))
+		std::cout << this->getName() << " executed " << form.getName();
 }

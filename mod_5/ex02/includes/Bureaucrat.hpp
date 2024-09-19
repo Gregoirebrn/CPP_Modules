@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                         :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,15 +16,15 @@
 #include <iostream>
 #include "AForm.hpp"
 
-class Bureaucrat{
+class ScalarConverter{
 private:
 	const std::string	_name;
 	int					_grade;
 public:
-	Bureaucrat(const std::string &name, int grade);
-	~Bureaucrat();
-	Bureaucrat (const Bureaucrat &origine);
-	Bureaucrat &operator=(const Bureaucrat &origine);
+	ScalarConverter(const std::string &name, int grade);
+	~ScalarConverter();
+	ScalarConverter (const ScalarConverter &origine);
+	ScalarConverter &operator=(const ScalarConverter &origine);
 
 	std::string getName() const ;
 	int		getGrade() const ;
@@ -32,6 +32,8 @@ public:
 	void	incr_grade(int add);
 	void	decr_grade(int minus);
 	static void	check_grade(int grade);
+
+	void executeForm(AForm const & form) const;
 
 	void	signForm(const AForm &Form) const ;
 	class GradeTooHighException : public std::exception {
@@ -44,6 +46,6 @@ public:
 	};
 };
 
-std::ostream &operator << (std::ostream &out, const Bureaucrat &c);
+std::ostream &operator << (std::ostream &out, const ScalarConverter &c);
 
 #endif

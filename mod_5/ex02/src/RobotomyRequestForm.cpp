@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:41:02 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/06 19:00:39 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:37:28 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	return (*this);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+int RobotomyRequestForm::execute(ScalarConverter const & executor) const {
+	is_grade_exe(executor);
 	srand(time(NULL));
 	if (rand() % 2)
 		std::cout << _target << " has been robotomized successfully." << std::endl;
 	else
 		std::cout << "The robotomy failed." << std::endl;
+	return (0);
 }

@@ -15,7 +15,7 @@
 
 #include <iostream>
 
-class Bureaucrat;
+class ScalarConverter;
 
 class AForm{
 private:
@@ -34,16 +34,20 @@ public:
 	int		getSigned() const ;
 	int		getEGrade() const ;
 	int		getSGrade() const ;
-	void	beSigned(const Bureaucrat &origine) ;
+	void	beSigned(const ScalarConverter &origine) ;
 
-	void	is_grade_exe(Bureaucrat const & executor) const ;
-	virtual void	execute(Bureaucrat const & executor) const = 0;
+	void	is_grade_exe(ScalarConverter const & executor) const ;
+	virtual int	execute(ScalarConverter const & executor) const = 0;
 
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception {
+	public:
+		virtual const char* what() const throw();
+	};
+	class IsNotSigned : public std::exception {
 	public:
 		virtual const char* what() const throw();
 	};

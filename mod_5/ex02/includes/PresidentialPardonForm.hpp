@@ -26,7 +26,7 @@ public:
 	PresidentialPardonForm (const PresidentialPardonForm &origine);
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &origine);
 
-	void	execute(Bureaucrat const & executor) const ;
+	int	execute(ScalarConverter const & executor) const ;
 };
 
 #endif
