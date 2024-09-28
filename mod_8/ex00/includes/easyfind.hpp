@@ -15,10 +15,14 @@ public:
 
 template < typename T>
 void find_or_not(const std::vector<T> &vec, const T& to_find) {
-	typename std::vector<T>::const_iterator value_found = std::find(vec.begin(), vec.end(), to_find);
-
-	if (value_found != vec.end())
-		return (std::cout << "Value found " << to_find << std::endl, (void)0);
+	std::vector<int>::const_iterator it;
+	std::vector<int>::const_iterator ite = vec.end();
+	int	i = 0;
+	for (it = vec.begin(); it != ite; ++it) {
+		if (*it == to_find)
+			return (std::cout << "Found " << to_find << " in " << i << " place." << std::endl, (void)0);
+		i++;
+	}
 	throw NotFound();
 }
 
