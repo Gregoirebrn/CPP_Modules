@@ -58,8 +58,6 @@ AForm *Intern::makeForm(std::string name_form, std::string target_of_form) {
 		default:
 			throw NotAForm();
 	}
-	AForm *fill = NULL;
-	return (fill);
 }
 
 const char *Intern::NotAForm::what() const throw() {

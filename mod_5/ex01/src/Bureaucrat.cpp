@@ -12,8 +12,7 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
-{
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name) {
 	std::cout << "Bureaucrat second constructor called" << std::endl;
 	check_grade(grade);
 	this->_grade = grade;
@@ -35,58 +34,48 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &origine) {
 	return (*this);
 }
 
-std::ostream & operator << (std::ostream &out, const Bureaucrat &c)
-{
+std::ostream & operator << (std::ostream &out, const Bureaucrat &c) {
 	out << c.getName() << ", bureaucrat grade " << c.getGrade() << ".";
 	return out;
 }
 
-std::string Bureaucrat::getName() const
-{
+std::string Bureaucrat::getName() const {
 	return this->_name;
 }
 
-int Bureaucrat::getGrade() const
-{
+int Bureaucrat::getGrade() const {
 	return (this->_grade);
 }
 
-void	Bureaucrat::check_grade(int grade)
-{
+void	Bureaucrat::check_grade(int grade) {
 	if (grade < 1)
 		throw (Bureaucrat::GradeTooHighException());
 	if (grade > 150)
 		throw (Bureaucrat::GradeTooLowException());
 }
 
-void Bureaucrat::incr_grade(int add)
-{
-	this->_grade += add;
+void Bureaucrat::incr_grade() {
+	this->_grade--;
 	check_grade(_grade);
 }
 
-void Bureaucrat::decr_grade(int minus)
-{
-	this->_grade -= minus;
+void Bureaucrat::decr_grade() {
+	this->_grade++;
 	check_grade(_grade);
 }
 
-const char *Bureaucrat::GradeTooHighException::what() const throw()
-{
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("The grade is Too High.");
 }
 
-const char *Bureaucrat::GradeTooLowException::what() const throw()
-{
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("The grade is Too Low.");
 }
 
-void Bureaucrat::signForm(const Form &Form) const
-{
+void Bureaucrat::signForm(const Form &Form) const {
 	if (Form.getSigned())
 		std::cout << _name << " signed " << Form.getName() << "." << std::endl;
 	else {
-		std::cout << _name << " couldn't sign " << Form.getName() << " because ";
-		throw (Form::GradeTooLowException());
+		std::cout << _name << " couldn't sign " << Form.getName() << " because the grade is too low!" << std::endl;
 	}
 }

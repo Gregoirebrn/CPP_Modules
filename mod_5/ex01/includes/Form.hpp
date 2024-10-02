@@ -21,8 +21,8 @@ class Form{
 private:
 	const std::string	_name;
 	bool				_signed;
-	const int					_s_grade;
-	const int					_e_grade;
+	const int			_s_grade;
+	const int			_e_grade;
 public:
 	Form(const std::string &name, int eg, int sg);
 	~Form();
@@ -44,5 +44,7 @@ public:
 		virtual const char* what() const throw();
 	};
 };
+
+std::ostream &operator << (std::ostream &out, const Form &c);
 
 #endif

@@ -6,27 +6,27 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:42:23 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/05 14:31:12 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:44:41 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
 	try
 	{
-		Bureaucrat k("kaan", 150);
+		Bureaucrat k("kaan", 13);
 		std::cout << k << std::endl;
-		std::cout << "AAAAAAAAAA" << std::endl;
-		Form f("Proce", 1, 140);
-		std::cout << "BBBBBBBBBB" << std::endl;
+		Form f("Proce", 120, 140);
+		std::cout << f << std::endl;
 		f.beSigned(k);
-		std::cout << "CCCCCCCCCC" << std::endl;
+		std::cout << f << std::endl;
 		k.signForm(f);
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exeption : " << e.what() << std::endl;
+		std::cout << "Exeption : " << e.what() << std::endl;
 	}
 }
