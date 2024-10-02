@@ -13,15 +13,15 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("default") {
-	std::cout << "PresidentialPardonForm second constructor called" << std::endl;
+//	std::cout << "PresidentialPardonForm second constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("PresidentialPardonForm", 25, 5) , _target(target) {
-	std::cout << "PresidentialPardonForm second constructor called" << std::endl;
+//	std::cout << "PresidentialPardonForm second constructor called" << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {
-	std::cout << "PresidentialPardonForm default destructor called" << std::endl;
+//	std::cout << "PresidentialPardonForm default destructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &origin) : AForm(origin), _target(origin._target) {

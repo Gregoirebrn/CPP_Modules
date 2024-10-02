@@ -37,7 +37,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &origine) {
 
 std::ostream & operator << (std::ostream &out, const Bureaucrat &c)
 {
-	out << c.getName() << ", bureaucrat grade " << c.getGrade() << ".";
+	out << c.getName() << ", bureaucrat grade is " << c.getGrade() << ".";
 	return out;
 }
 

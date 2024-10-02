@@ -6,22 +6,22 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:45:12 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/09 18:23:58 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:44:23 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 147, 137), _target("default") {
-	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
+//	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("ShrubberyCreationForm", 147, 137) , _target(target) {
-	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
+//	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << "ShrubberyCreationForm default destructor called" << std::endl;
+//	std::cout << "ShrubberyCreationForm default destructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &origin) : AForm(origin), _target(origin._target) {
@@ -49,8 +49,18 @@ int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 			<< "   ~  \\\\ //  ~\n"
 			<< "_- -   | | _- _\n"
 			<< "  _ -  | |   -_\n"
+			<< "      // \\\\" << std::endl
+			<< "       _-_\n"
+			<< "    /~~   ~~\\\n"
+			<< " /~~         ~~\\\n"
+			<< "{               }\n"
+			<< " \\  _-     -_  /\n"
+			<< "   ~  \\\\ //  ~\n"
+			<< "_- -   | | _- _\n"
+			<< "  _ -  | |   -_\n"
 			<< "      // \\\\" << std::endl;
 	outfile.close();
+	std::cout << "Created a file " << _target + "_shrubbery" << " in the working directory, and writed ASCII trees inside it." << std::endl;
 	return (0);
 }
 

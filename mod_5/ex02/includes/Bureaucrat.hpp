@@ -29,8 +29,8 @@ public:
 	std::string getName() const ;
 	int		getGrade() const ;
 
-	void	incr_grade(int add);
-	void	decr_grade(int minus);
+	void	incr_grade();
+	void	decr_grade();
 	static void	check_grade(int grade);
 
 	void executeForm(AForm const & form) const;

@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:42:23 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 10:40:52 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:41:22 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,27 @@
 int main()
 {
 	try {
-		const Bureaucrat first("kaan", 150);
-		std::cout << "AAAAAAAAAA" << std::endl;
-		ShrubberyCreationForm shrub("kaan");
-		ShrubberyCreationForm greg("greg");
-		greg = shrub;
-		std::cout << "BBBBBBBBBB" << std::endl;
+		std::cout << "---SHRUBBERY---" << std::endl;
+		const Bureaucrat first("Magelan", 130);
+		ShrubberyCreationForm shrub("Kaan");
+		std::cout << shrub << std::endl;
+		std::cout << first << std::endl;
 		shrub.beSigned(first);
 		shrub.execute(first);
-		std::cout << "CCCCCCCCCC" << std::endl;
+		std::cout << "---ROBOTOMY---" << std::endl;
+		const Bureaucrat sec("Hera", 20);
+		RobotomyRequestForm roboto("Greg");
+		std::cout << roboto << std::endl;
+		std::cout << sec << std::endl;
+		roboto.beSigned(sec);
+		roboto.execute(sec);
+		std::cout << "---PRESIDENTIAL---" << std::endl;
+		const Bureaucrat third("Felon", 4);
+		PresidentialPardonForm presi("Ben");
+		std::cout << presi << std::endl;
+		std::cout << third << std::endl;
+		presi.beSigned(third);
+		presi.execute(third);
 	}
 	catch (std::exception &e)
 	{
