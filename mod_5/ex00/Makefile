@@ -29,7 +29,7 @@ HEAD_D		:=	includes/
 
 CFLAGS		:=	c++ -Wall -Wextra -Werror -std=c++98
 
-BIN			:=	The_Forest
+BIN			:=	Bureaucrat
 
 ########################################################################################################################
 #                                                        RULES                                                         #

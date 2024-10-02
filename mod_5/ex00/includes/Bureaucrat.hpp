@@ -28,8 +28,8 @@ public:
 	std::string const getName() const ;
 	int		getGrade() const ;
 
-	void	incr_grade(int add);
-	void	decr_grade(int minus);
+	void	incr_grade();
+	void	decr_grade();
 	void	check_grade(int grade);
 	class GradeTooHighException : public std::exception {
 	public:

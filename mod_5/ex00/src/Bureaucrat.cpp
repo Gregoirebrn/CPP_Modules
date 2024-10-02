@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 11:29:44 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 11:29:44 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/02 14:34:20 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ void	Bureaucrat::check_grade(int grade)
 		throw (Bureaucrat::GradeTooLowException());
 }
 
-void Bureaucrat::incr_grade(int add)
+void Bureaucrat::incr_grade()
 {
-	this->_grade += add;
+	this->_grade--;
 	check_grade(_grade);
 }
 
-void Bureaucrat::decr_grade(int minus)
+void Bureaucrat::decr_grade()
 {
-	this->_grade -= minus;
+	this->_grade++;
 	check_grade(_grade);
 }
 
