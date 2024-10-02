@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 18:05:09 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/05 14:25:11 by grebrune         ###   ########.fr       */
+/*   Created: 2024/10/02 11:34:23 by grebrune          #+#    #+#             */
+/*   Updated: 2024/10/02 11:34:23 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,13 @@ int AForm::getSigned() const {
 	return (this->_signed);
 }
 
-void AForm::beSigned(const ScalarConverter &origine) {
+void AForm::beSigned(const Bureaucrat &origine) {
 	if (origine.getGrade() > this->_s_grade)
 		throw (AForm::GradeTooLowException());
 	this->_signed = true;
 }
 
-void AForm::is_grade_exe(ScalarConverter const & executor) const
-{
+void AForm::is_grade_exe(Bureaucrat const & executor) const {
 	if (!this->getSigned())
 		throw AForm::IsNotSigned();
 	if (executor.getGrade() < _e_grade)

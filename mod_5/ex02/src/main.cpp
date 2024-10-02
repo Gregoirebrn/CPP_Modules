@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:42:23 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/09 19:16:05 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/02 10:40:52 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 int main()
 {
 	try {
-		const ScalarConverter first("kaan", 150);
+		const Bureaucrat first("kaan", 150);
 		std::cout << "AAAAAAAAAA" << std::endl;
 		ShrubberyCreationForm shrub("kaan");
+		ShrubberyCreationForm greg("greg");
+		greg = shrub;
 		std::cout << "BBBBBBBBBB" << std::endl;
 		shrub.beSigned(first);
 		shrub.execute(first);

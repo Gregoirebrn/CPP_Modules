@@ -22,7 +22,8 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("Rob
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
-	std::cout << "RobotomyRequestForm default destructor called" << std::endl; }
+	std::cout << "RobotomyRequestForm default destructor called" << std::endl;
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &origin) : AForm(origin), _target(origin._target) {
 	std::cout << "Copy constructor operator called" << std::endl;
@@ -38,7 +39,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	return (*this);
 }
 
-int RobotomyRequestForm::execute(ScalarConverter const & executor) const {
+int RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	is_grade_exe(executor);
 	srand(time(NULL));
 	if (rand() % 2)

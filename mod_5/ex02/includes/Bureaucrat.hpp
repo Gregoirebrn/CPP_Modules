@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                         :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 14:48:16 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/01 13:27:30 by grebrune         ###   ########.fr       */
+/*   Created: 2024/10/02 11:28:41 by grebrune          #+#    #+#             */
+/*   Updated: 2024/10/02 11:28:41 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 #include <iostream>
 #include "AForm.hpp"
 
-class ScalarConverter{
+class Bureaucrat{
 private:
 	const std::string	_name;
 	int					_grade;
 public:
-	ScalarConverter(const std::string &name, int grade);
-	~ScalarConverter();
-	ScalarConverter (const ScalarConverter &origine);
-	ScalarConverter &operator=(const ScalarConverter &origine);
+	Bureaucrat(const std::string &name, int grade);
+	~Bureaucrat();
+	Bureaucrat (const Bureaucrat &origine);
+	Bureaucrat &operator=(const Bureaucrat &origine);
 
 	std::string getName() const ;
 	int		getGrade() const ;
@@ -46,6 +46,6 @@ public:
 	};
 };
 
-std::ostream &operator << (std::ostream &out, const ScalarConverter &c);
+std::ostream &operator << (std::ostream &out, const Bureaucrat &c);
 
 #endif

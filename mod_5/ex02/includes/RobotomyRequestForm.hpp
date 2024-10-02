@@ -26,7 +26,7 @@ public:
 	RobotomyRequestForm (const RobotomyRequestForm &origine);
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &origine);
 
-	int	execute(ScalarConverter const & executor) const ;
+	int	execute(Bureaucrat const & executor) const ;
 };
 
 #endif

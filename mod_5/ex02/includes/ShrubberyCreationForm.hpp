@@ -27,7 +27,7 @@ public:
 	ShrubberyCreationForm (const ShrubberyCreationForm &origine);
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &origine);
 
-	int	execute(ScalarConverter const & executor) const ;
+	int	execute(Bureaucrat const & executor) const ;
 };
 
 #endif

@@ -21,7 +21,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm(
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << "ShrubberyCreationForm default destructor called" << std::endl; }
+	std::cout << "ShrubberyCreationForm default destructor called" << std::endl;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &origin) : AForm(origin), _target(origin._target) {
 	std::cout << "Copy constructor operator called" << std::endl;
@@ -29,15 +30,14 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &origin
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &origine) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &origine)
-	{
+	if (this != &origine) {
 		this->AForm::operator=(origine);
 		_target = origine._target;
 	}
 	return (*this);
 }
 
-int	ShrubberyCreationForm::execute(ScalarConverter const & executor) const {
+int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	is_grade_exe(executor);
 	std::ofstream outfile;
 	outfile.open((_target + "_shrubbery").c_str());

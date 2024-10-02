@@ -21,7 +21,8 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AFor
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {
-	std::cout << "PresidentialPardonForm default destructor called" << std::endl; }
+	std::cout << "PresidentialPardonForm default destructor called" << std::endl;
+}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &origin) : AForm(origin), _target(origin._target) {
 	std::cout << "Copy constructor operator called" << std::endl;
@@ -37,7 +38,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-int PresidentialPardonForm::execute(ScalarConverter const & executor) const {
+int PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 	is_grade_exe(executor);
 	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 	return (0);
