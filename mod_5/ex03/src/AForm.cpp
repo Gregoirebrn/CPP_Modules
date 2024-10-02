@@ -5,16 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 11:42:34 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 11:46:16 by grebrune         ###   ########.fr       */
+/*   Created: 2024/10/02 11:34:23 by grebrune          #+#    #+#             */
+/*   Updated: 2024/10/02 16:37:26 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(const std::string &name, int eg, int sg) : _name(name), _signed(false), _s_grade(sg), _e_grade(eg) {
-	std::cout << "AForm second constructor called" << std::endl;
+static void	check_grade(int grade) {
+	if (grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	if (grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
+}
+
+AForm::AForm(const std::string &name, int sg, int eg) : _name(name), _s_grade(sg), _e_grade(eg) {
+//	std::cout << "Form second constructor called" << std::endl;
+	check_grade(_s_grade);
+	check_grade(_e_grade);
+	this->_signed = false;
 }
 
 AForm::AForm() : _name("default"), _signed(false), _s_grade(0), _e_grade(0) {
@@ -22,7 +32,7 @@ AForm::AForm() : _name("default"), _signed(false), _s_grade(0), _e_grade(0) {
 }
 
 AForm::~AForm() {
-	std::cout << "AForm default destructor called" << std::endl;
+//	std::cout << "AForm default destructor called" << std::endl;
 }
 
 AForm::AForm(const AForm &origine) : _name(origine._name) , _signed(origine._signed), _s_grade(origine._s_grade), _e_grade(origine._e_grade) {
@@ -37,7 +47,10 @@ AForm &AForm::operator=(const AForm &origine) {
 }
 
 std::ostream & operator << (std::ostream &out, const AForm &c) {
-	out << c.getName() << ", is signed " << c.getSigned() << " required to execute it " << c.getEGrade() << " grade required to sign it " << c.getSGrade() << ".";
+	if (c.getSigned())
+		out << "Name of form is " << c.getName() << "." << std::endl << "The Form is signed." << std::endl << "The grade required to execute is " << c.getEGrade() << "." << std::endl << "And the grade required to sign is " << c.getSGrade() << ".";
+	else
+		out << "Name of form is " << c.getName() << "." << std::endl << "The Form is not signed." << std::endl << "The grade required to execute is " << c.getEGrade() << "." << std::endl << "And the grade required to sign is " << c.getSGrade() << ".";
 	return out;
 }
 
@@ -66,7 +79,7 @@ void AForm::beSigned(const Bureaucrat &origine) {
 void AForm::is_grade_exe(Bureaucrat const & executor) const {
 	if (!this->getSigned())
 		throw AForm::IsNotSigned();
-	if (executor.getGrade() < _e_grade)
+	if (executor.getGrade() > _e_grade)
 		throw AForm::GradeTooLowException() ;
 }
 
@@ -81,4 +94,3 @@ const char *AForm::GradeTooLowException::what() const throw() {
 const char *AForm::IsNotSigned::what() const throw() {
 	return ("The Form is not signed.");
 }
-

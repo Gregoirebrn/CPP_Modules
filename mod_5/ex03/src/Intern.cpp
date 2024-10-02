@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:45:12 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 14:12:26 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/02 17:13:51 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@ AForm *Intern::makeForm(std::string name_form, std::string target_of_form) {
 	switch (hash_level(name_form))
 	{
 		case 1231330906: {
-			std::cout << "Intern creates " << target_of_form << " !" << std::endl;
+			std::cout << "Intern creates a " << name_form << " form and his name is " << target_of_form << " !" << std::endl;
 			return (new PresidentialPardonForm(target_of_form));
 		}
 		case 471008488: {
-			std::cout << "Intern creates " << target_of_form << " !" << std::endl;
+			std::cout << "Intern creates a " << name_form << " form and his name is " << target_of_form << " !" << std::endl;
 			return (new RobotomyRequestForm(target_of_form));
 		}
 		case 1032646283: {
-			std::cout << "Intern creates " << target_of_form << " !" << std::endl;
+			std::cout << "Intern creates a " << name_form << " form and his name is " << target_of_form << " !" << std::endl;
 			return (new ShrubberyCreationForm(target_of_form));
 		}
 		default:

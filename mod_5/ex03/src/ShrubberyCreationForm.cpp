@@ -13,15 +13,15 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 147, 137), _target("default") {
-	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
+//	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("ShrubberyCreationForm", 147, 137) , _target(target) {
-	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
+//	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << "ShrubberyCreationForm default destructor called" << std::endl;
+//	std::cout << "ShrubberyCreationForm default destructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &origin) : AForm(origin), _target(origin._target) {

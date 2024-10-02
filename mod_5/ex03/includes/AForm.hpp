@@ -53,4 +53,7 @@ public:
 	};
 };
 
+std::ostream &operator << (std::ostream &out, const AForm &c);
+
+
 #endif

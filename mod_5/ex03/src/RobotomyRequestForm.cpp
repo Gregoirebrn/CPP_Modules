@@ -14,15 +14,15 @@
 #include <cmath>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 75, 45), _target("default") {
-	std::cout << "RobotomyRequestForm second constructor called" << std::endl;
+//	std::cout << "RobotomyRequestForm second constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("RobotomyRequestForm", 75, 45) , _target(target) {
-	std::cout << "RobotomyRequestForm second constructor called" << std::endl;
+//	std::cout << "RobotomyRequestForm second constructor called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
-	std::cout << "RobotomyRequestForm default destructor called" << std::endl;
+//	std::cout << "RobotomyRequestForm default destructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &origin) : AForm(origin), _target(origin._target) {
