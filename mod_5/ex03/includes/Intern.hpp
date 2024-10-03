@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:33:17 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/03 14:54:34 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:06:43 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ public:
 
 	class NotAForm : public std::exception {
 	public:
-		virtual const char* what() const throw();
+		const char* what() const throw();
 	};
 };
 
-std::ostream &operator << (std::ostream &out, const Intern &c);
+std::ostream &operator<<(std::ostream &out, const Intern &c);
 
 #endif

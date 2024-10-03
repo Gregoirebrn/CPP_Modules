@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 18:35:40 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/03 14:31:34 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:06:44 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ public:
 	~ShrubberyCreationForm() {}
 	ShrubberyCreationForm (const ShrubberyCreationForm &origin);
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &origin);
+
+	int	execute(Bureaucrat const & executor) const ;
+
 	class CanNotOpenFile : public std::exception {
 	public:
 		const char* what() const throw();
 	};
 
-	int	execute(Bureaucrat const & executor) const ;
 };
 
 #endif
