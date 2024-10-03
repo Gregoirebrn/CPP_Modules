@@ -22,8 +22,8 @@ private:
 public:
 	Intern();
 	~Intern();
-	Intern (const Intern &origine);
-	Intern &operator=(const Intern &origine);
+	Intern (const Intern &origin);
+	Intern &operator=(const Intern &origin);
 
 	AForm *makeForm(std::string name_form, std::string target_of_form);
 

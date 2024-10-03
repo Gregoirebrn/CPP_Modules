@@ -16,19 +16,19 @@
 #include "ShrubberyCreationForm.hpp"
 
 Intern::Intern(){
-	std::cout << "Interm default constructor called" << std::endl;
+	std::cout << "Intern default constructor called" << std::endl;
 }
 
 Intern::~Intern() {
-	std::cout << "Interm default destructor called" << std::endl;
+	std::cout << "Intern default destructor called" << std::endl;
 }
 
-Intern::Intern(const Intern &origine) {
-	(void)origine;
+Intern::Intern(const Intern &origin) {
+	(void)origin;
 }
 
-Intern &Intern::operator=(const Intern &origine) {
-	(void)origine;
+Intern &Intern::operator=(const Intern &origin) {
+	(void)origin;
 	return *this;
 }
 
