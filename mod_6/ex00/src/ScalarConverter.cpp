@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.cpp                                         :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 17:29:48 by grebrune          #+#    #+#             */
-/*   Updated: 2024/07/31 15:30:17 by grebrune         ###   ########.fr       */
+/*   Created: 2024/10/03 17:12:08 by grebrune          #+#    #+#             */
+/*   Updated: 2024/10/03 17:13:05 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,28 @@ ScalarConverter::~ScalarConverter() {
 	std::cout << "ScalarConverter default destructor called" << std::endl;
 }
 
-ScalarConverter::ScalarConverter(const ScalarConverter &origine) {
+ScalarConverter::ScalarConverter(const ScalarConverter &origin) {
 	std::cout << "Copy constructor operator called" << std::endl;
-	(void)origine;
+	(void)origin;
 }
 
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &origine) {
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	(void)origine;
+	(void)origin;
 	return (*this);
 }
 
 void print_types(char c, int i, float f, double d) {
-	//char
 	if (i > 127 || i < 0)
 		std::cout << "char: impossible" << std::endl;
 	else if (i < 9 || (i > 11 && i < 32) || i == 127)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << c << "'" << std::endl;
-	//int
 	if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
-	//float
 	if (f < 1000000 && f > -1000000 && i - d == 0) {
 		std::cout << "float: " << f << ".0f" << std::endl;
 		std::cout << "double: " << d << ".0" << std::endl;
@@ -53,10 +50,9 @@ void print_types(char c, int i, float f, double d) {
 		std::cout << "float: " << f << "f" << std::endl;
 		std::cout << "double: " << d << std::endl;
 	}
-	//double
 }
 
-static bool ToDouble(std::string str) {
+static bool ToDouble(const std::string& str) {
 	std::stringstream ss(str);
 	double d;
 	ss >> d;
@@ -82,7 +78,7 @@ static bool ToFloat(std::string str) {
 	}
 }
 
-static bool ToInt(std::string str) {
+static bool ToInt(const std::string& str) {
 	std::stringstream ss(str);
 	int i;
 	ss >> i;
@@ -105,7 +101,7 @@ static bool ToChar(std::string str) {
 	}
 }
 
-static int spec_case(std::string str) {
+static int spec_case(const std::string& str) {
 	if(str == "nan" || str == "+inf" || str == "-inf")
 	{
 		std::cout << "char: impossible" << std::endl;
@@ -140,7 +136,7 @@ static void putimp() {
 	std::cout << "double: impossible" << std::endl;
 }
 
-void ScalarConverter::convert(std::string str) {
+void ScalarConverter::convert(const std::string& str) {
 	if (ToChar(str))
 		return (void)0;
 	if (ToInt(str))
@@ -153,21 +149,3 @@ void ScalarConverter::convert(std::string str) {
 		return ;
 	putimp();
 }
-
-//	if (check_cast(static_cast<float>(type), str))
-//		return (putimp(), (void)0);
-
-//static int check_cast(float f, std::string str) {
-//	std::ostringstream ss;
-//	ss << f;
-//	std::string s(ss.str());
-//	std::cout << "float f " << f << std::endl;
-//	std::cout << "float to String : " << s << std::endl;
-//	std::cout << "String str : " << str << std::endl;
-////	(void)str;
-//	if (s == "+inf" || s == "inf" || s == "nanf" || s == "-inf")
-//		return 0;
-//	if (s != str && str[1])
-//		return 1;
-//	return 0;
-//}

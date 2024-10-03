@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                         :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 14:48:16 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/01 13:27:30 by grebrune         ###   ########.fr       */
+/*   Created: 2024/10/03 17:12:56 by grebrune          #+#    #+#             */
+/*   Updated: 2024/10/03 17:13:05 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ private:
 	ScalarConverter();
 	~ScalarConverter();
 public:
-	ScalarConverter (const ScalarConverter &origine);
-	ScalarConverter &operator=(const ScalarConverter &origine);
+	ScalarConverter (const ScalarConverter &origin);
+	ScalarConverter &operator=(const ScalarConverter &origin);
 
-	static void convert(std::string str);
+	static void convert(const std::string& str);
 };
 
 #endif
