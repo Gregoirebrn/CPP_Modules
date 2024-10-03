@@ -34,7 +34,7 @@ public:
 	int		getSigned() const ;
 	int		getEGrade() const ;
 	int		getSGrade() const ;
-	void	beSigned(const Bureaucrat &origin) ;
+	void	beSigned(const Bureaucrat &signer) ;
 
 	void	is_grade_exe(Bureaucrat const & executor) const ;
 	virtual int	execute(Bureaucrat const & executor) const = 0;

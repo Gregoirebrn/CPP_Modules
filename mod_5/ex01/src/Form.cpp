@@ -67,8 +67,8 @@ int Form::getSigned() const {
 	return (this->_signed);
 }
 
-void Form::beSigned(const Bureaucrat &origin) {
-	if (origin.getGrade() > this->_s_grade)
+void Form::beSigned(const Bureaucrat &signer) {
+	if (signer.getGrade() > this->_s_grade)
 		throw (Form::GradeTooLowException());
 	this->_signed = true;
 }

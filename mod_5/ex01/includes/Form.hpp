@@ -35,7 +35,7 @@ public:
 	int		getEGrade() const ;
 	int		getSGrade() const ;
 
-	void	beSigned(const Bureaucrat &origine) ;
+	void	beSigned(const Bureaucrat &signer) ;
 	class GradeTooHighException : public std::exception {
 	public:
 		const char* what() const throw();
