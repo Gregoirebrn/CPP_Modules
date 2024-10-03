@@ -6,31 +6,26 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 11:28:25 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/03 14:02:45 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:01:56 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name) {
-//	std::cout << "Bureaucrat second constructor called" << std::endl;
 	check_grade(grade);
 	this->_grade = grade;
 }
 
-Bureaucrat::~Bureaucrat() {
-//	std::cout << "Bureaucrat default destructor called" << std::endl;
-}
-
-Bureaucrat::Bureaucrat(const Bureaucrat &origine) : _name(origine._name){
+Bureaucrat::Bureaucrat(const Bureaucrat &origin) : _name(origin._name){
 	std::cout << "Copy constructor operator called" << std::endl;
-	this->_grade = origine._grade;
+	this->_grade = origin._grade;
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &origine) {
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &origine)
-		this->_grade = origine._grade;
+	if (this != &origin)
+		this->_grade = origin._grade;
 	return (*this);
 }
 

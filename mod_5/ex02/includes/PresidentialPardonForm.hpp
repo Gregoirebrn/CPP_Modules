@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 17:27:09 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/06 19:00:09 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 13:47:15 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 	PresidentialPardonForm();
 public:
 	PresidentialPardonForm(std::string const &name);
-	~PresidentialPardonForm();
+	~PresidentialPardonForm() {}
 	PresidentialPardonForm (const PresidentialPardonForm &origin);
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &origin);
 

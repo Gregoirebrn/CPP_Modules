@@ -6,24 +6,17 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:45:12 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/03 14:31:34 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:40:00 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "../../ex03/includes/ShrubberyCreationForm.hpp"
 
-
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("default") {
-//	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("ShrubberyCreationForm", 145, 137) , _target(target) {
-//	std::cout << "ShrubberyCreationForm second constructor called" << std::endl;
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-//	std::cout << "ShrubberyCreationForm default destructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &origin) : AForm(origin), _target(origin._target) {

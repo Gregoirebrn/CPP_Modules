@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 11:34:23 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 16:35:59 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:00:23 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,19 @@ static void	check_grade(int grade) {
 }
 
 AForm::AForm(const std::string &name, int sg, int eg) : _name(name), _s_grade(sg), _e_grade(eg) {
-//	std::cout << "Form second constructor called" << std::endl;
 	check_grade(_s_grade);
 	check_grade(_e_grade);
 	this->_signed = false;
 }
 
-AForm::AForm() : _name("default"), _signed(false), _s_grade(0), _e_grade(0) {
-	std::cout << "AForm default destructor called" << std::endl;
-}
-
-AForm::~AForm() {
-//	std::cout << "AForm default destructor called" << std::endl;
-}
-
-AForm::AForm(const AForm &origine) : _name(origine._name) , _signed(origine._signed), _s_grade(origine._s_grade), _e_grade(origine._e_grade) {
+AForm::AForm(const AForm &origin) : _name(origin._name) , _signed(origin._signed), _s_grade(origin._s_grade), _e_grade(origin._e_grade) {
 	std::cout << "Copy constructor operator called" << std::endl;
 }
 
-AForm &AForm::operator=(const AForm &origine) {
+AForm &AForm::operator=(const AForm &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &origine)
-		this->_signed = origine._signed;
+	if (this != &origin)
+		this->_signed = origin._signed;
 	return (*this);
 }
 
@@ -78,8 +69,8 @@ int AForm::getSigned() const {
 	return (this->_signed);
 }
 
-void AForm::beSigned(const Bureaucrat &origine) {
-	if (origine.getGrade() > this->_s_grade)
+void AForm::beSigned(const Bureaucrat &origin) {
+	if (origin.getGrade() > this->_s_grade)
 		throw (AForm::GradeTooLowException());
 	this->_signed = true;
 }

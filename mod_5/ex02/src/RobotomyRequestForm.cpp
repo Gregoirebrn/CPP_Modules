@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:41:02 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/03 13:47:15 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:10:12 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 #include <cmath>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("default") {
-//	std::cout << "RobotomyRequestForm second constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("RobotomyRequestForm", 72, 45) , _target(target) {
-//	std::cout << "RobotomyRequestForm second constructor called" << std::endl;
-}
-
-RobotomyRequestForm::~RobotomyRequestForm() {
-//	std::cout << "RobotomyRequestForm default destructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &origin) : AForm(origin), _target(origin._target) {

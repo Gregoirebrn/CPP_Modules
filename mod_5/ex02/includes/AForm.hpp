@@ -25,16 +25,16 @@ private:
 	const int			_e_grade;
 public:
 	AForm(const std::string &name, int eg, int sg);
-	AForm();
-	virtual ~AForm();
-	AForm (const AForm &origine);
-	AForm &operator=(const AForm &origine);
+	AForm() : _name("default"), _signed(false), _s_grade(1), _e_grade(1) {}
+	virtual ~AForm() {}
+	AForm (const AForm &origin);
+	AForm &operator=(const AForm &origin);
 
 	std::string getName() const ;
 	int		getSigned() const ;
 	int		getEGrade() const ;
 	int		getSGrade() const ;
-	void	beSigned(const Bureaucrat &origine) ;
+	void	beSigned(const Bureaucrat &origin) ;
 
 	void	is_grade_exe(Bureaucrat const & executor) const ;
 	virtual int	execute(Bureaucrat const & executor) const = 0;

@@ -23,7 +23,7 @@ private:
 public:
 	Bureaucrat(const std::string &name, int grade);
 	Bureaucrat() : _name("default"), _grade(1) {}
-	~Bureaucrat();
+	~Bureaucrat() {}
 	Bureaucrat (const Bureaucrat &origin);
 	Bureaucrat &operator=(const Bureaucrat &origin);
 
