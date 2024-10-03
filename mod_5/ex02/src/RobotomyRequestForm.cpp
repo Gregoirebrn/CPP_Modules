@@ -35,6 +35,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 int RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	is_grade_exe(executor);
+	std::cout << "DrrrrDrrrrrDRRRRRRRR....." << std::endl;
 	srand(time(NULL));
 	if (rand() % 2)
 		std::cout << _target << " has been robotomized successfully." << std::endl;
