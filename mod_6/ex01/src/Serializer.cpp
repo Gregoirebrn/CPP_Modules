@@ -12,29 +12,29 @@
 
 #include "Serializer.hpp"
 
-Base::Base() {
-	std::cout << "Base default constructor called" << std::endl;
+Serializer::Serializer() {
+	std::cout << "Serializer default constructor called" << std::endl;
 }
 
-Base::~Base() {
-	std::cout << "Base default destructor called" << std::endl;
+Serializer::~Serializer() {
+	std::cout << "Serializer default destructor called" << std::endl;
 }
 
-Base::Base(const Base &origin) {
+Serializer::Serializer(const Serializer &origin) {
 	std::cout << "Copy constructor operator called" << std::endl;
 	(void)origin;
 }
 
-Base &Base::operator=(const Base &origin) {
+Serializer &Serializer::operator=(const Serializer &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->exemple = origin.exemple;
 	return (*this);
 }
 
-uintptr_t Base::serialize(Data *ptr) {
+uintptr_t Serializer::serialize(Data *ptr) {
 	return reinterpret_cast<uintptr_t>(ptr);
 }
 
-Data *Base::deserialize(uintptr_t raw) {
+Data *Serializer::deserialize(uintptr_t raw) {
 	return reinterpret_cast<Data *>(raw);
 }
