@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:45:12 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 17:13:51 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:54:34 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-
-Intern::Intern(){
-	std::cout << "Intern default constructor called" << std::endl;
-}
-
-Intern::~Intern() {
-	std::cout << "Intern default destructor called" << std::endl;
-}
 
 Intern::Intern(const Intern &origin) {
 	(void)origin;

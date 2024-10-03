@@ -22,7 +22,7 @@ private:
 	PresidentialPardonForm();
 public:
 	PresidentialPardonForm(std::string const &name);
-	~PresidentialPardonForm();
+	~PresidentialPardonForm() {}
 	PresidentialPardonForm (const PresidentialPardonForm &origin);
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &origin);
 

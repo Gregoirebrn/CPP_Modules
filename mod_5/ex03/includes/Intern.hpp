@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:33:17 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 13:47:12 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:54:34 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 #include "AForm.hpp"
 
 class Intern {
-private:
-
 public:
-	Intern();
-	~Intern();
+	Intern() {}
+	~Intern() {}
 	Intern (const Intern &origin);
 	Intern &operator=(const Intern &origin);
 

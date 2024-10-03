@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 11:42:45 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 11:46:16 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 13:47:15 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ private:
 public:
 	AForm(const std::string &name, int eg, int sg);
 	AForm() : _name("default"), _signed(false), _s_grade(1), _e_grade(1) {}
-	~AForm();
+	~AForm() {}
 	AForm (const AForm &origine);
 	AForm &operator=(const AForm &origin);
 

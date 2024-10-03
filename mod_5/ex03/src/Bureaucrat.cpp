@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 11:28:25 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 16:37:26 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 13:47:15 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name) {
 //	std::cout << "Bureaucrat second constructor called" << std::endl;
 	check_grade(grade);
 	this->_grade = grade;
-}
-
-Bureaucrat::~Bureaucrat() {
-//	std::cout << "Bureaucrat default destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &origin) : _name(origin._name){

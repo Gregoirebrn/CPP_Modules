@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 11:34:23 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 16:37:26 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 13:47:15 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,6 @@ AForm::AForm(const std::string &name, int sg, int eg) : _name(name), _s_grade(sg
 	check_grade(_s_grade);
 	check_grade(_e_grade);
 	this->_signed = false;
-}
-
-AForm::~AForm() {
-//	std::cout << "AForm default destructor called" << std::endl;
 }
 
 AForm::AForm(const AForm &origin) : _name(origin._name) , _signed(origin._signed), _s_grade(origin._s_grade), _e_grade(origin._e_grade) {

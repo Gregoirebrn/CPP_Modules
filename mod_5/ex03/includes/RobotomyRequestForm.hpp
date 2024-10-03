@@ -22,7 +22,7 @@ private:
 	RobotomyRequestForm();
 public:
 	RobotomyRequestForm(std::string const &name);
-	~RobotomyRequestForm();
+	~RobotomyRequestForm() {}
 	RobotomyRequestForm (const RobotomyRequestForm &origin);
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &origin);
 
