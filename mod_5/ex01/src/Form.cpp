@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 11:31:00 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 15:52:03 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:59:47 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ Form::~Form() {
 	std::cout << "Form default destructor called" << std::endl;
 }
 
-Form::Form(const Form &origine) : _name(origine._name) , _s_grade(origine._s_grade), _e_grade(origine._e_grade) {
+Form::Form(const Form &origin) : _name(origin._name) , _s_grade(origin._s_grade), _e_grade(origin._e_grade) {
 	std::cout << "Copy constructor operator called" << std::endl;
-	_signed = origine._signed;
+	_signed = origin._signed;
 }
 
-Form &Form::operator=(const Form &origine) {
+Form &Form::operator=(const Form &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &origine)
-		this->_signed = origine._signed;
+	if (this != &origin)
+		this->_signed = origin._signed;
 	return (*this);
 }
 
@@ -67,8 +67,8 @@ int Form::getSigned() const {
 	return (this->_signed);
 }
 
-void Form::beSigned(const Bureaucrat &origine) {
-	if (origine.getGrade() > this->_s_grade)
+void Form::beSigned(const Bureaucrat &origin) {
+	if (origin.getGrade() > this->_s_grade)
 		throw (Form::GradeTooLowException());
 	this->_signed = true;
 }

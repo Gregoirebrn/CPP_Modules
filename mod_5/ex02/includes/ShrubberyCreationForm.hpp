@@ -24,10 +24,14 @@ private:
 public:
 	ShrubberyCreationForm(const std::string& target);
 	~ShrubberyCreationForm();
-	ShrubberyCreationForm (const ShrubberyCreationForm &origine);
-	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &origine);
+	ShrubberyCreationForm (const ShrubberyCreationForm &origin);
+	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &origin);
 
 	int	execute(Bureaucrat const & executor) const ;
+	class CanNotOpenFile : public std::exception {
+	public:
+		const char* what() const throw();
+	};
 };
 
 #endif

@@ -23,8 +23,8 @@ private:
 public:
 	PresidentialPardonForm(std::string const &name);
 	~PresidentialPardonForm();
-	PresidentialPardonForm (const PresidentialPardonForm &origine);
-	PresidentialPardonForm &operator=(const PresidentialPardonForm &origine);
+	PresidentialPardonForm (const PresidentialPardonForm &origin);
+	PresidentialPardonForm &operator=(const PresidentialPardonForm &origin);
 
 	int	execute(Bureaucrat const & executor) const ;
 };

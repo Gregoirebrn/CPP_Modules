@@ -22,9 +22,10 @@ private:
 	int					_grade;
 public:
 	Bureaucrat(const std::string &name, int grade);
+	Bureaucrat() : _name("default"), _grade(1) {}
 	~Bureaucrat();
-	Bureaucrat (const Bureaucrat &origine);
-	Bureaucrat &operator=(const Bureaucrat &origine);
+	Bureaucrat (const Bureaucrat &origin);
+	Bureaucrat &operator=(const Bureaucrat &origin);
 
 	std::string getName() const ;
 	int		getGrade() const ;
@@ -38,14 +39,14 @@ public:
 	void	signForm(const AForm &Form) const ;
 	class GradeTooHighException : public std::exception {
 	public:
-		virtual const char* what() const throw();
+		const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char* what() const throw();
+		const char* what() const throw();
 	};
 };
 
-std::ostream &operator << (std::ostream &out, const Bureaucrat &c);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &c);
 
 #endif

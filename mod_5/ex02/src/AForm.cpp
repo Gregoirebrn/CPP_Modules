@@ -48,9 +48,17 @@ AForm &AForm::operator=(const AForm &origine) {
 
 std::ostream & operator << (std::ostream &out, const AForm &c) {
 	if (c.getSigned())
-		out << "Name of form is " << c.getName() << "." << std::endl << "The Form is signed." << std::endl << "The grade required to execute is " << c.getEGrade() << "." << std::endl << "And the grade required to sign is " << c.getSGrade() << ".";
+		out << "Name of form is " << c.getName() << "."
+			<< std::endl << "The Form is signed."
+			<< std::endl << "The grade required to execute is "
+			<< c.getEGrade() << "." << std::endl
+			<< "And the grade required to sign is " << c.getSGrade() << ".";
 	else
-		out << "Name of form is " << c.getName() << "." << std::endl << "The Form is not signed." << std::endl << "The grade required to execute is " << c.getEGrade() << "." << std::endl << "And the grade required to sign is " << c.getSGrade() << ".";
+		out << "Name of form is " << c.getName()
+		<< "." << std::endl << "The Form is not signed."
+		<< std::endl << "The grade required to execute is "
+		<< c.getEGrade() << "." << std::endl
+		<< "And the grade required to sign is " << c.getSGrade() << ".";
 	return out;
 }
 

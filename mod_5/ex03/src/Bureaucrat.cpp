@@ -22,15 +22,15 @@ Bureaucrat::~Bureaucrat() {
 //	std::cout << "Bureaucrat default destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &origine) : _name(origine._name){
+Bureaucrat::Bureaucrat(const Bureaucrat &origin) : _name(origin._name){
 	std::cout << "Copy constructor operator called" << std::endl;
-	this->_grade = origine._grade;
+	this->_grade = origin._grade;
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &origine) {
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &origine)
-		this->_grade = origine._grade;
+	if (this != &origin)
+		this->_grade = origin._grade;
 	return (*this);
 }
 
@@ -55,13 +55,13 @@ void	Bureaucrat::check_grade(int grade) {
 }
 
 void Bureaucrat::incr_grade() {
+	check_grade(_grade - 1);
 	this->_grade--;
-	check_grade(_grade);
 }
 
 void Bureaucrat::decr_grade() {
+	check_grade(_grade + 1);
 	this->_grade++;
-	check_grade(_grade);
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {

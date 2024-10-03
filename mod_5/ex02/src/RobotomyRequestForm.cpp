@@ -6,18 +6,18 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:41:02 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/09 18:37:28 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 13:47:15 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <cmath>
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 75, 45), _target("default") {
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("default") {
 //	std::cout << "RobotomyRequestForm second constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("RobotomyRequestForm", 75, 45) , _target(target) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("RobotomyRequestForm", 72, 45) , _target(target) {
 //	std::cout << "RobotomyRequestForm second constructor called" << std::endl;
 }
 
@@ -29,12 +29,12 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &origin) : AF
 	std::cout << "Copy constructor operator called" << std::endl;
 }
 
-RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &origine) {
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &origine)
+	if (this != &origin)
 	{
-		this->AForm::operator=(origine);
-		_target = origine._target;
+		this->AForm::operator=(origin);
+		_target = origin._target;
 	}
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 11:30:38 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 11:30:38 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:59:47 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ private:
 	const int			_e_grade;
 public:
 	Form(const std::string &name, int eg, int sg);
+	Form() : _name("default"), _signed(false) ,_s_grade(1), _e_grade(1) {}
 	~Form();
 	Form (const Form &origine);
 	Form &operator=(const Form &origine);
@@ -37,11 +38,11 @@ public:
 	void	beSigned(const Bureaucrat &origine) ;
 	class GradeTooHighException : public std::exception {
 	public:
-		virtual const char* what() const throw();
+		const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char* what() const throw();
+		const char* what() const throw();
 	};
 };
 

@@ -19,7 +19,7 @@ int main()
 		Bureaucrat k("kaan", 150);
 		std::cout << k << std::endl;
 		std::cout << "---INCREMENT---" << std::endl;
-		k.decr_grade();
+		k.incr_grade();
 		std::cout << k << std::endl;
 		Bureaucrat g(k);
 		std::cout << g << std::endl;

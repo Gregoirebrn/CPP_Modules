@@ -28,12 +28,12 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &ori
 	std::cout << "Copy constructor operator called" << std::endl;
 }
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &origine) {
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &origine)
+	if (this != &origin)
 	{
-		this->AForm::operator=(origine);
-		_target = origine._target;
+		this->AForm::operator=(origin);
+		_target = origin._target;
 	}
 	return (*this);
 }

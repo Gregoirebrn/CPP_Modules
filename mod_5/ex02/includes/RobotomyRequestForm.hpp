@@ -23,8 +23,8 @@ private:
 public:
 	RobotomyRequestForm(std::string const &name);
 	~RobotomyRequestForm();
-	RobotomyRequestForm (const RobotomyRequestForm &origine);
-	RobotomyRequestForm &operator=(const RobotomyRequestForm &origine);
+	RobotomyRequestForm (const RobotomyRequestForm &origin);
+	RobotomyRequestForm &operator=(const RobotomyRequestForm &origin);
 
 	int	execute(Bureaucrat const & executor) const ;
 };

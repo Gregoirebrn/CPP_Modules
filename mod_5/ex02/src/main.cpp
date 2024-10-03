@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:42:23 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/02 16:41:22 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:34:12 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int main()
 {
 	try {
 		std::cout << "---SHRUBBERY---" << std::endl;
-		const Bureaucrat first("Magelan", 130);
+		Bureaucrat first("Magelan", 130);
 		ShrubberyCreationForm shrub("Kaan");
 		std::cout << shrub << std::endl;
 		std::cout << first << std::endl;
-		shrub.beSigned(first);
+		first.signForm(shrub);
 		shrub.execute(first);
 		std::cout << "---ROBOTOMY---" << std::endl;
 		const Bureaucrat sec("Hera", 20);
