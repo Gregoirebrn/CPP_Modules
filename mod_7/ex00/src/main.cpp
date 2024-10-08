@@ -14,8 +14,8 @@
 
 int main(void)
 {
-	int a = 7;
-	int b = 7;
+	int a = 1;
+	int b = 2;
 
 	std::cout << "----------------SWAP---------------" << std::endl;
 	std::cout << "a = " << a << std::endl;
