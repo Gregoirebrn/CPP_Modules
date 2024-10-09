@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 15:43:03 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/06 19:37:18 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/07 11:06:00 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ BitcoinExchange::BitcoinExchange(const char *file_name) {
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &origin) {
-
+	if (this != &origin) {
+		_map = origin._map;
+	}
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &origin) {

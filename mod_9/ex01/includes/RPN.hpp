@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 16:14:22 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/07 11:03:53 by grebrune         ###   ########.fr       */
+/*   Created: 2024/10/09 12:38:40 by grebrune          #+#    #+#             */
+/*   Updated: 2024/10/09 17:52:17 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#ifndef RPN_HPP
+#define RPN_HPP
 
-int main(int ac, char **av) {
-//	if (ac != 2)
-//		return (std::cout << "Missing file argument !" << std::endl, 0);
-	(void)ac;
-//	(void)av;
-	try {
-		BitcoinExchange btc((av[1]));
-	}
-	catch (std::exception &e) {
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
-//	BitcoinExchange *copy = NULL;
-//	copy->print_map();
+#include <iostream>
+#include <stack>
+#include "BadArgument.hpp"
 
-	return 0;
-}
+class RPN {
+	std::stack<int>		_stack;
+	std::string			_rpn;
+	size_t				_nbr_in;
+	RPN();
+	RPN (const RPN &origin);
+	RPN &operator=(const RPN &origin);
+public:
+	RPN (const char *rpn);
+	~RPN() {}
+	int find_operator(char c);
+	void check_num_arg(std::string arg);
+};
+
+#endif
