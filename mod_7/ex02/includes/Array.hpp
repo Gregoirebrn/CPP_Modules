@@ -21,21 +21,9 @@ private:
 	size_t _n;
 public:
 	Array() : _array(NULL), _n(0) {};
-
 	Array(size_t n) : _array(new T[n]()) , _n(n){};
-
 	~Array() { delete [] _array; }
-
-	size_t size() const {return _n; };
-
-	T & operator[](size_t n) const {
-		if (_n <= n || _n == 0)
-			throw OutBond();
-		return (_array[n]);
-	}
-
 	Array(Array &copy) : _array(new T[copy._n]()) , _n(copy._n){}
-
 	Array & operator = (const Array &rhs) {
 		if (this != &rhs) {
 			delete [] _array;
@@ -47,6 +35,14 @@ public:
 		}
 		return *this;
 	}
+
+	size_t size() const {return _n; };
+	T & operator[](size_t n) const {
+		if (_n <= n || _n == 0)
+			throw OutBond();
+		return (_array[n]);
+	}
+
 	class OutBond : public std::exception {
 	public:
 		virtual const char* what() const throw() {

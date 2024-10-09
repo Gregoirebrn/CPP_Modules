@@ -6,11 +6,11 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:05:22 by grebrune          #+#    #+#             */
-/*   Updated: 2024/09/26 01:23:57 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/08 14:45:55 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "EasyFind.hpp"
 
 int main() {
 //init vector
@@ -29,7 +29,7 @@ int main() {
 	}
 //find first occurence with integers
 	try {
-		find_or_not(number, 70);
+		std::vector<int>::const_iterator retu = easyfind(number, 70);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
