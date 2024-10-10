@@ -6,24 +6,16 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:40:01 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/09 17:53:41 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:42:25 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::RPN() {
+RPN::RPN() : _nbr_in(0){
 }
 
-void printstack(std::stack<int> s)
-{
-	if (s.empty())
-		return;
-	int x = s.top();
-	s.pop();
-	printstack(s);
-	std::cout << x << std::endl;
-	s.push(x);
+RPN::~RPN(){
 }
 
 void RPN::check_num_arg(std::string arg) {
@@ -44,6 +36,7 @@ void RPN::check_num_arg(std::string arg) {
 		throw BadArgument();
 }
 
+
 RPN::RPN(const char *arg) : _nbr_in(0) {
 	check_num_arg(arg);
 	for (int i = 0; arg[i] ; i++) {
@@ -59,8 +52,8 @@ RPN::RPN(const char *arg) : _nbr_in(0) {
 }
 
 int RPN::find_operator(char c) {
-	if (_nbr_in < 2)
-		return 0;
+	if (_nbr_in < 2 && _stack.size() == 1)
+		throw BadArgument();
 	int num1 = _stack.top();
 	_stack.pop();
 	int num2 = _stack.top();
@@ -87,6 +80,8 @@ int RPN::find_operator(char c) {
 			return 0;
 		}
 		case 47: {
+			if (num1 == 0)
+				throw BadArgument();
 			int res = num2 / num1;
 			_nbr_in++;
 			_stack.push(res);
@@ -99,7 +94,6 @@ int RPN::find_operator(char c) {
 
 RPN::RPN(const RPN &origin) {
 	if (this != &origin) {
-		_rpn = origin._rpn;
 		_stack = origin._stack;
 		_nbr_in = origin._nbr_in;
 	}
@@ -107,7 +101,6 @@ RPN::RPN(const RPN &origin) {
 
 RPN &RPN::operator=(const RPN &origin) {
 	if (this != &origin) {
-		_rpn = origin._rpn;
 		_stack = origin._stack;
 		_nbr_in = origin._nbr_in;
 	}
