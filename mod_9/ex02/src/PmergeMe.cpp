@@ -98,8 +98,6 @@ void PmergeMe::print_all() {
 		i++;
 	}
 }
-#include <iostream>
-#include <vector>
 
 std::vector<int> jacobsthal(int n) {
 	std::vector<int> J(n);
@@ -112,21 +110,4 @@ std::vector<int> jacobsthal(int n) {
 	}
 	return J;
 }
-
-int main() {
-	int n;
-	std::cout << "Entrez le nombre de termes de Jacobsthal à générer : ";
-	std::cin >> n;
-
-	std::vector<int> J = jacobsthal(n);
-
-	std::cout << "Suite de Jacobsthal : ";
-	for (int j : J) {
-		std::cout << j << " ";
-	}
-	std::cout << std::endl;
-
-	return 0;
-}
-
 
