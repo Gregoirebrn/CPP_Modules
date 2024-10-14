@@ -6,7 +6,7 @@
 /*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 13:57:57 by grebrune          #+#    #+#             */
-/*   Updated: 2024/10/11 18:22:46 by grebrune         ###   ########.fr       */
+/*   Updated: 2024/10/12 20:16:43 by grebrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void PmergeMe::print_vec(){
 	}
 }
 
-void	PmergeMe::print_pair_vec() {
+void	PmergeMe::print_pair_vec(std::vector<std::pair< int , int > > V) {
 	int i = 0;
 	std::pair< int , int > pair;
-	std::cout << "PAIR of " << _pair.size() << " elements :" << std::endl;
-	for (std::vector<std::pair< int , int > >::iterator it=_pair.begin(); it!=_pair.end(); ++it) {
+	std::cout << "PAIR of " << V.size() << " elements :" << std::endl;
+	for (std::vector<std::pair< int , int > >::iterator it=V.begin(); it!=V.end(); ++it) {
 		pair = *it;
 		std::cout << "First = " << pair.first << std::endl;
 		std::cout << "Second = " << pair.second << std::endl;
@@ -81,22 +81,29 @@ void	PmergeMe::fill_vec() {
 		}
 		_pair.push_back(pair);
 	}
-	std::vector<int> sortedResult = fordJohnsonSortRecursive(_pair);
-	print_all(sortedResult);
+	print_pair_vec(_pair);
+//	std::vector<int> sortedResult = fordJohnsonSortRecursive(_pair);
+//	print_all(sortedResult);
 }
 
-std::vector<int> PmergeMe::jacobsthal(int n) {
+int PmergeMe::jacobsthal(int n) {
 	std::vector<int> J(n);
-//	std::pair<int , int > pair_of_vec = *_pair.begin();
-//	J[0] = pair_of_vec.second;
-	if (n > 1) {
+	if (n < 1)
+		return 0;
+	if (n < 2)
+		return 1;
+	else {
+		J[0] = 0;
 		J[1] = 1;
 		for (int i = 2; i < n; ++i) {
-			J[i] = J[i - 2] + 2 * J[i - 1];
+			J[i] = J[i - 1] + (2 * J[i - 2]);
 		}
 	}
-//	print_all(J);
-	return J;
+	for (size_t i = 0; i < J.size(); ++i) {
+		std::cout << "J[" << i << "] =" << J[i] << std::endl;
+	}
+	std::cout << "J de n = " << J[n - 1] << std::endl;
+	return (J[n - 1] + (2 * J[n - 2]));
 }
 
 void PmergeMe::vec_algo(char **av) {
@@ -106,7 +113,8 @@ void PmergeMe::vec_algo(char **av) {
 		_vec.push_back(std::atoi(av[n]));
 	}
 	fill_vec();
-	jacobsthal(n);
+	recur(_pair, 0);
+	print_all(_final);
 }
 
 void PmergeMe::print_all(std::vector<int> J) {
@@ -118,62 +126,43 @@ void PmergeMe::print_all(std::vector<int> J) {
 	}
 }
 
-std::vector<int> mergeSortedPairs(const std::vector<std::pair<int, int> >& left,
-								  const std::vector<std::pair<int, int> >& right) {
-	std::vector<int> result;
-	size_t i = 0, j = 0;
-
-	// Merge the two sorted pairs (left and right) into one sorted vector
-	while (i < left.size() && j < right.size()) {
-		if (left[i].second <= right[j].first) {
-			result.push_back(left[i].first);
-			result.push_back(left[i].second);
-			i++;
+void	PmergeMe::recur(std::vector< std::pair<int,int> > input, int n) {
+	if (is_sort(input))
+		return ;
+	std::vector< std::pair<int,int> > to_next;
+	for (size_t i = 0; i < input.size() - 1; i += 2) {
+		std::pair<int, int> pair;
+		if (input[i].second >= input[i + 1].second) {
+			pair.second = input[i].second;
+			pair.first = input[i + 1].second;
 		} else {
-			result.push_back(right[j].first);
-			result.push_back(right[j].second);
-			j++;
+			pair.second = input[i + 1].second;
+			pair.first = input[i].second;
 		}
+		to_next.push_back(pair);
 	}
-
-	// Add remaining elements if there are any
-	while (i < left.size()) {
-		result.push_back(left[i].first);
-		result.push_back(left[i].second);
-		i++;
+	print_pair_vec(to_next);
+	int j = jacobsthal(n);
+	std::cout << "jacob = " << j << std::endl;
+	recur(to_next, n + 1);
+	if (_final.empty()) {
+		_final.push_back(to_next[0].first);
+		_final.push_back(to_next[0].second);
 	}
-
-	while (j < right.size()) {
-		result.push_back(right[j].first);
-		result.push_back(right[j].second);
-		j++;
-	}
-
-	return result;
+//	else {
+//		for (std::vector<std::pair<int ,int > >::iterator it = to_next.begin(); it < to_next.end(); it++) {
+//			if (_final[j / 2] < it)
+//			_final.push_back(to_next[j].first);
+//		}
+//	}
+	return ;
 }
 
-// Recursive function implementing Ford-Johnson algorithm
-std::vector<int> PmergeMe::fordJohnsonSortRecursive(std::vector<std::pair<int, int> >& pairs) {
-	// Base case: If we have one or no pairs, return the result
-	if (pairs.size() == 1) {
-		std::vector<int> sorted;
-		sorted.push_back(pairs[0].first);
-		sorted.push_back(pairs[0].second);
-		return sorted;
+bool PmergeMe::is_sort(std::vector<std::pair<int, int> > input) {
+	for (size_t i = 0; i < input.size() - 1; i++) {
+		if (input[i].first > input[i + 1].first)
+			return false;
 	}
-
-	// Split the vector of pairs into two halves
-	size_t mid = pairs.size() / 2;
-	std::vector<std::pair<int, int> > left(pairs.begin(), pairs.begin() + mid);
-	std::vector<std::pair<int, int> > right(pairs.begin() + mid, pairs.end());
-
-	// Recursively sort the left and right halves
-	std::vector<int> sortedLeft = fordJohnsonSortRecursive(left);
-	std::vector<int> sortedRight = fordJohnsonSortRecursive(right);
-
-	// Merge the two sorted halves
-	return mergeSortedPairs(left, right);
+	return true;
 }
-
-
 
