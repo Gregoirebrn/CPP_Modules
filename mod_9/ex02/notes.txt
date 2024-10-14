@@ -1,0 +1,7 @@
+
+
+ 1 - Remplir le vector avec des paires avec a l'insertion une premiere comparaison
+
+ 2 - Prendre la premiere paire et la mettre dans le nouveau vector
+
+   - Appeler une fonction qui verifie si le vector est sort
