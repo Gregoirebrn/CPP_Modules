@@ -13,6 +13,7 @@
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
+#include <complex>
 #include <cstdlib>
 #include <iterator>
 #include <iostream>
@@ -23,11 +24,11 @@
 #include "BadArgument.hpp"
 
 class PmergeMe {
-	std::vector< std::pair<int,int> >		_pair;
 	std::vector<int>		_vec;
 	std::vector<int>		_final;
-	int						_jacob_number;
-//	std::deque<int>			_dec;
+	size_t					_nbr_pair;
+	size_t					_size;
+	int						_n;
 public:
 	~PmergeMe();
 	PmergeMe();
@@ -39,16 +40,20 @@ public:
 //	void deq_algo(char **av);
 
 	size_t jacobsthal(int n);
-	void print_pair_vec(std::vector<std::pair< int , int > > V);
-	void fill_vec();
+	void insert_jacobsthal();
+	void ford_johnson();
+	void merge();
+	void insert();
+	void first_merge();
 	void print_vec();
 	void print_all(std::vector<int> J);
-//	std::vector<int> fordJohnsonSortRecursive(std::vector<std::pair<int, int> >& pairs);
+	std::vector<int>::iterator find_iter(size_t i);
 
-	void recur(std::vector< std::pair<int,int> > input);
-	static bool is_sort(std::vector< std::pair<int,int> > input);
-	int find_small(std::vector<std::pair<int, int> > haystack, int to_find);
-	std::vector<std::pair< int , int > >::iterator find_iter(std::vector<std::pair< int , int > > V, int i);
+//	std::vector<int> fordJohnsonSortRecursive(std::vector<std::pair<int, int> >& pairs);
+//	void recur(std::vector< std::pair<int,int> > input);
+//	static bool is_sort(std::vector< std::pair<int,int> > input);
+//	int find_small(std::vector<std::pair<int, int> > haystack, int to_find, std::vector<int> _final, int distance);
+//	std::vector<std::pair< int , int > >::iterator find_iter(std::vector<std::pair< int , int > > V, int i);
 };
 
 #endif
