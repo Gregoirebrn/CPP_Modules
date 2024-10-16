@@ -41,12 +41,13 @@ public:
 
 	size_t jacobsthal(int n);
 	void insert_jacobsthal();
-	void ford_johnson();
+	void in_if(size_t go_to, size_t i, std::vector<int> bis);
+	void in_else(size_t go_to, size_t i, std::vector<int> bis);
 	void merge();
 	void insert();
 	void first_merge();
 	void print_vec();
-	void print_all(std::vector<int> J);
+	static void print_all(std::vector<int> &J);
 	std::vector<int>::iterator find_iter(size_t i);
 
 //	std::vector<int> fordJohnsonSortRecursive(std::vector<std::pair<int, int> >& pairs);

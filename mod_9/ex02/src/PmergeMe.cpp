@@ -47,12 +47,10 @@ void PmergeMe::print_vec(){
 	}
 }
 
-void PmergeMe::print_all(std::vector<int> J) {
-	int i = 0;
+void PmergeMe::print_all(std::vector<int> &J) {
 	std::cout << "RESULT of " << J.size() << " elements :" << std::endl;
 	for (std::vector<int>::iterator it=J.begin(); it!=J.end(); ++it) {
 		std::cout << *it << ", " ;
-		i++;
 	}
 	std::cout << std::endl;
 }
@@ -71,78 +69,73 @@ void PmergeMe::vec_algo(char **av) {
 	if (_size % 2 != 0)
 		_size--;
 	_nbr_pair = _size / 2;
+	std::cout << "_nbr_pair = " << _nbr_pair << std::endl;
+	print_all(_vec);
 	first_merge();
-	ford_johnson();
+	print_all(_vec);
+	merge();
 	insert_jacobsthal();
+}
+
+void PmergeMe::in_if(size_t go_to, size_t i, std::vector<int> bis) {
+	for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ ) {
+		bis.push_back(_vec[to]);
+//			std::cout << "1_vec[to = " << _vec[to] << std::endl;
+//			print_all(bis);
+	}
+	for ( size_t to = i ; to < go_to ; to++ ) {
+		bis.push_back(_vec[to]);
+//			std::cout << "2_vec[to = " << _vec[to] << std::endl;
+//			print_all(bis);
+	}
+	print_all(_vec);
+}
+
+void PmergeMe::in_else(size_t go_to, size_t i, std::vector<int> bis) {
+	for ( size_t to = i ; to < _size && to < go_to; to++ ) {
+		bis.push_back(_vec[to]);
+//				std::cout << "3_vec[to = " << _vec[to] << std::endl;
+	}
+	for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ ) {
+		bis.push_back(_vec[to]);
+//				std::cout << "4_vec[to = " << _vec[to] << std::endl;
+	}
+	print_all(_vec);
+
 }
 
 void PmergeMe::merge() {
 	std::vector<int> bis;
+	_nbr_pair /= 2;
 	for (size_t i = 0; i < _nbr_pair ; i += _size / _nbr_pair * 2)
 	{
 		size_t go_to = i + _size / _nbr_pair;
 		if (go_to > _size)
 			break ;
-		if (_vec[i] <= _vec[go_to]) {
-			for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ ) {
-				bis.push_back(_vec[to]);
-			}
-			for ( size_t to = i ; to < go_to ; to++ ) {
-				bis.push_back(_vec[to]);
-			}
-		} else {
-			for ( size_t to = i ; to < _size && to < go_to; to++ ) {
-				bis.push_back(_vec[to]);
-			}
-			for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ ) {
-				bis.push_back(_vec[to]);
-			}
-		}
+		if (_vec[i] <= _vec[go_to])
+			in_if(go_to, i, bis);
+		else
+			in_else(go_to, i, bis);
 	}
-	print_all(bis);
+//	std::cout << "_nbr_pair = " << _nbr_pair << std::endl;
 	_vec = bis;
 	print_all(_vec);
-	std::cout << "nbr_pair = " << _nbr_pair << std::endl;
-}
-
-void PmergeMe::insert() {
-	std::vector<int> bis;
-	for (size_t i = 0; i < _size ; i += _size / _nbr_pair * 2)
-	{
+	if (_nbr_pair != 1)
+		merge();
+	_nbr_pair *= 2;
+	std::vector<int> tmp;
+	for (size_t i = 0; i < _size ; i += _size / _nbr_pair * 2) {
 		size_t go_to = i + _size / _nbr_pair;
 		if (go_to > _size)
-			break ;
-		if (_vec[i] >= _vec[go_to]) {
-			for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ ) {
-				bis.push_back(_vec[to]);
-			}
-			for ( size_t to = i ; to < go_to ; to++ ) {
-				bis.push_back(_vec[to]);
-			}
-		} else {
-			for ( size_t to = i ; to < _size && to < go_to; to++ ) {
-				bis.push_back(_vec[to]);
-			}
-			for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ ) {
-				bis.push_back(_vec[to]);
-			}
-		}
+			break;
+		if (_vec[i] >= _vec[go_to])
+			in_if(go_to, i, tmp);
+		else
+			in_else(go_to, i, tmp);
 	}
-	std::cout << "GGGGGGGGGGG" << std::endl;
+//	std::cout << "_nbr_pair = " << _nbr_pair << std::endl;
+	_vec = tmp;
 	print_all(_vec);
-	_vec = bis;
-	print_all(_vec);
-	std::cout << "GGGGGGGGGGG" << std::endl;
-	_nbr_pair *= 2;
-	std::cout << "nbr_pair = " << _nbr_pair << std::endl;
-}
-
-void	PmergeMe::ford_johnson() {
-	_nbr_pair /= 2;
-	merge();
-	if (_nbr_pair != 1)
-		ford_johnson();
-	insert();
 }
 
 void PmergeMe::first_merge() {
@@ -180,7 +173,7 @@ void PmergeMe::insert_jacobsthal() {
 			}
 		}
 	}
-		print_all(_final);
+	print_all(_final);
 }
 
 std::vector<int>::iterator PmergeMe::find_iter(size_t i) {
@@ -193,4 +186,5 @@ std::vector<int>::iterator PmergeMe::find_iter(size_t i) {
 	std::vector<int>::iterator it = _final.end();
 	return it;
 }
+
 
