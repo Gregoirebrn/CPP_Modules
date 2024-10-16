@@ -124,3 +124,13 @@ int PmergeMe::find_small(std::vector<std::pair<int, int> > haystack, int to_find
 
 	return -1;
 }
+
+
+
+void PmergeMe::print_all(std::vector<int> &J) {
+	std::cout << "RESULT of " << J.size() << " elements :" << std::endl;
+	for (std::vector<int>::iterator it=J.begin(); it!=J.end(); ++it) {
+		std::cout << *it << ", " ;
+	}
+	std::cout << std::endl;
+}
