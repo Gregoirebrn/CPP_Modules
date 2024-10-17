@@ -55,11 +55,11 @@ PmergeMe::PmergeMe(char **av) : _nbr_pair(0), _n(2){
 	clock_t end = clock();
 	clock_t elapsed = end-start;
 	std::cout << "After :  ";
+	if (!vec_sort(_vec_final)) {
+		_vec = _vec_final;
+		vec_merge_insert_jac();
+	}
 	vec_print(_vec_final);
-	if (vec_sort(_vec_final))
-		std::cout << "VEC SORTED" << std::endl;
-	else
-		std::cout << "VEC NOT SORTED" << std::endl;
 	double vec_sec = static_cast<double>(elapsed) / CLOCKS_PER_SEC * 100;
 	for (int n = 0; av[n]; n++) {
 		check_str(av[n]);
@@ -68,10 +68,6 @@ PmergeMe::PmergeMe(char **av) : _nbr_pair(0), _n(2){
 	start = clock();
 	deq_algo();
 	end = clock();
-	if (deq_sort(_deq_final))
-		std::cout << "DEQ SORTED" << std::endl;
-	else
-		std::cout << "DEQ NOT SORTED" << std::endl;
 	elapsed = end-start;
 	double deq_sec = static_cast<double>(elapsed) / CLOCKS_PER_SEC * 100;
 	std::cout << "Time to process a range of " << pt_sz << " elements with std::vector : " << vec_sec << " us" << std::endl;
@@ -82,8 +78,8 @@ void PmergeMe::deq_algo() {
 	_size = _deq.size();
 	if (_size == 1)
 		return (_deq_final = _deq, (void)0);
-	if (_size <= 4)
-		return (deq_insert_jacobsthal());
+	if (_size <= 7)
+		return (deq_merge_insert_jac());
 	if (_size % 2 != 0)
 		_size--;
 	_nbr_pair = _size / 2;
@@ -137,14 +133,14 @@ void PmergeMe::deq_merge() {
 	_deq = tmp;
 }
 
-void PmergeMe::deq_in_if(size_t go_to, size_t i, std::deque<int> bis) {
+void PmergeMe::deq_in_if(size_t go_to, size_t i, std::deque<int> &bis) {
 	for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ )
 		bis.push_back(_deq[to]);
 	for ( size_t to = i ; to < go_to ; to++ )
 		bis.push_back(_deq[to]);
 }
 
-void PmergeMe::deq_in_else(size_t go_to, size_t i, std::deque<int> bis) {
+void PmergeMe::deq_in_else(size_t go_to, size_t i, std::deque<int> &bis) {
 	for ( size_t to = i ; to < _size && to < go_to; to++ )
 		bis.push_back(_deq[to]);
 	for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ )
@@ -195,12 +191,28 @@ void PmergeMe::deq_print(std::deque<int> D) {
 	std::cout << std::endl;
 }
 
+void PmergeMe::deq_merge_insert_jac() {
+	for (int i = 0; i < (int)_deq.size() - 1; i++) {
+		if (_deq[i] > _deq[i + 1]) {
+			switch_deq(i);
+			i = -1;
+		}
+	}
+	_deq_final = _deq;
+}
+
+void PmergeMe::switch_deq(int i) {
+	int tmp = _deq[i];
+	_deq[i] = _deq[i + 1];
+	_deq[i + 1] = tmp;
+}
+
 void PmergeMe::vec_algo() {
 	_size = _vec.size();
 	if (_size == 1)
 		return (_vec_final = _vec, (void)0);
-	if (_size <= 4)
-		return (vec_insert_jacobsthal());
+	if (_size <= 7)
+		return (vec_merge_insert_jac());
 	if (_size % 2 != 0)
 		_size--;
 	_nbr_pair = _size / 2;
@@ -222,6 +234,7 @@ void PmergeMe::vec_first_merge() {
 		}
 	}
 	_vec = bis;
+	vec_print(_vec);
 }
 
 void PmergeMe::vec_merge() {
@@ -238,6 +251,7 @@ void PmergeMe::vec_merge() {
 			vec_in_else(go_to, i, bis);
 	}
 	_vec = bis;
+	vec_print(_vec);
 	if (_nbr_pair != 1)
 		vec_merge();
 	_nbr_pair *= 2;
@@ -254,14 +268,14 @@ void PmergeMe::vec_merge() {
 	_vec = tmp;
 }
 
-void PmergeMe::vec_in_if(size_t go_to, size_t i, std::vector<int> bis) {
+void PmergeMe::vec_in_if(size_t go_to, size_t i, std::vector<int> &bis) {
 	for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ )
 		bis.push_back(_vec[to]);
 	for ( size_t to = i ; to < go_to ; to++ )
 		bis.push_back(_vec[to]);
 }
 
-void PmergeMe::vec_in_else(size_t go_to, size_t i, std::vector<int> bis) {
+void PmergeMe::vec_in_else(size_t go_to, size_t i, std::vector<int> &bis) {
 	for ( size_t to = i ; to < _size && to < go_to; to++ )
 		bis.push_back(_vec[to]);
 	for ( size_t to = go_to ; to < _size && to < go_to + i + _size / _nbr_pair ; to++ )
@@ -276,7 +290,7 @@ void PmergeMe::vec_insert_jacobsthal() {
 		if (j_nbr > _size)
 			j_nbr = _size;
 		for (size_t last_j_nbr = jacobsthal(_n - 1); j_nbr > last_j_nbr; --j_nbr) {
-			for (size_t i = _vec_final.size(); i > 0; i--) {
+			for (size_t i = _vec_final.size() ; i > 0; i--) {
 				if (_vec[j_nbr] > _vec_final[i - 1]) {
 					_vec_final.insert( vec_find_iter(i) , _vec[j_nbr]);
 					break;
@@ -284,6 +298,22 @@ void PmergeMe::vec_insert_jacobsthal() {
 			}
 		}
 	}
+}
+
+void PmergeMe::vec_merge_insert_jac() {
+	for (int i = 0; i < (int)_vec.size() - 1; i++) {
+		if (_vec[i] > _vec[i + 1]) {
+			switch_vec(i);
+			i = -1;
+		}
+	}
+	_vec_final = _vec;
+}
+
+void PmergeMe::switch_vec(int i) {
+	int tmp = _vec[i];
+	_vec[i] = _vec[i + 1];
+	_vec[i + 1] = tmp;
 }
 
 std::vector<int>::iterator PmergeMe::vec_find_iter(size_t i) {
@@ -306,7 +336,8 @@ bool PmergeMe::vec_sort(std::vector<int> input) {
 }
 
 void PmergeMe::vec_print(std::vector<int> V) {
-	for (std::vector<int>::iterator it=V.begin(); it!=V.end(); ++it)
-		std::cout << *it << " " ;
+	for (size_t i=0; i < V.size(); ++i)
+		std::cout << V[i] << ", " ;
 	std::cout << std::endl;
 }
+

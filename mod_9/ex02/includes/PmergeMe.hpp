@@ -46,25 +46,28 @@ public:
 	void deq_algo();
 
 	void deq_insert_jacobsthal();
-	void deq_in_if(size_t go_to, size_t i, std::deque<int> bis);
-	void deq_in_else(size_t go_to, size_t i, std::deque<int> bis);
+	void deq_in_if(size_t go_to, size_t i, std::deque<int> &bis);
+	void deq_in_else(size_t go_to, size_t i, std::deque<int> &bis);
 	void deq_merge();
 	void deq_first_merge();
 	std::deque<int>::iterator deq_find_iter(size_t i);
 	bool deq_sort(std::deque<int> input);
-	void vec_print(std::vector<int> V);
-
+	void deq_print(std::deque<int> D);
+	void deq_merge_insert_jac();
+	void switch_deq(int i);
 
 	void vec_algo();
 
 	void vec_insert_jacobsthal();
-	void vec_in_if(size_t go_to, size_t i, std::vector<int> bis);
-	void vec_in_else(size_t go_to, size_t i, std::vector<int> bis);
+	void vec_in_if(size_t go_to, size_t i, std::vector<int> &bis);
+	void vec_in_else(size_t go_to, size_t i, std::vector<int> &bis);
 	void vec_merge();
 	void vec_first_merge();
 	std::vector<int>::iterator vec_find_iter(size_t i);
 	bool vec_sort(std::vector<int> input);
-	void deq_print(std::deque<int> D);
+	void vec_print(std::vector<int> V);
+	void vec_merge_insert_jac();
+	void switch_vec(int i);
 
 };
 
