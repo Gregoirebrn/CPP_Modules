@@ -24,9 +24,11 @@ private:
 	size_t				_n;
 	size_t				_added;
 public:
-//	Span() : _vec(0), _n(0), _added(0) {} ;
 	Span(int n) : _vec(0), _n(n), _added(0) {} ;
 	~Span() {};
+
+	Span(Span const &copy);
+	Span & operator = (Span rhs);
 
 	void addNumber(int number);
 	int shortestSpan();
@@ -38,10 +40,6 @@ public:
 
 	void OneCall(std::vector<int> range);
 	void print_vec();
-
-	Span(Span const &copy);
-
-	Span & operator = (Span rhs);
 
 	class OutOfBond : public std::exception {
 	public:
