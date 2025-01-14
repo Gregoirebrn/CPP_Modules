@@ -14,13 +14,12 @@
 #                                                       VARIABLE                                                       #
 ########################################################################################################################
 
-SRCS		:=	main.cpp		\
-				Animal.cpp		\
-				Brain.cpp		\
-				Cat.cpp			\
-				Dog.cpp			\
-				WrongCat.cpp	\
-				WrongAnimal.cpp	\
+SRCS		:=	AMateria.cpp		\
+				Character.cpp		\
+				Cure.cpp			\
+				Ice.cpp				\
+				main.cpp			\
+				MateriaSource.cpp	\
 
 SRCS_D		:=	src/
 
@@ -28,18 +27,19 @@ OBJS_D		:=	objs/
 
 OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
-HEAD		:=	Animal.hpp		\
-				Brain.hpp		\
-				Cat.hpp			\
-				Dog.hpp			\
-				WrongCat.hpp	\
-				WrongAnimal.hpp	\
+HEAD		:=	IMateriaSource.hpp	\
+				MateriaSource.hpp	\
+				ICharacter.hpp		\
+				Character.hpp		\
+				AMateria.cpp		\
+				Cure.hpp			\
+				Ice.hpp				\
 
 HEAD_D		:=	includes/
 
 CFLAGS		:=	c++ -Wall -Wextra -Werror -std=c++98 -g3
 
-BIN			:=	The_Forest
+BIN			:=	Matiax
 
 ########################################################################################################################
 #                                                        RULES                                                         #

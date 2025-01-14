@@ -1,31 +1,27 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: grebrune <grebrune@student.42lyon.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 17:16:19 by grebrune          #+#    #+#             */
-/*   Updated: 2024/08/07 15:08:49 by grebrune         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "IMateriaSource.hpp"
+#include "Character.hpp"
+#include "ICharacter.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "MateriaSource.hpp"
+#include "AMateria.hpp"
 
 int main()
 {
-	std::cout << "---------Constructor---------------" << " " << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-//	const Animal* p = new Animal();
-
-	std::cout << "---------Destructor----------------" << " " << std::endl;
-	delete j;//should not create a leak
-	delete i;
-	std::cout << "---------End of Test---------------" << " " << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
 	return 0;
 }
