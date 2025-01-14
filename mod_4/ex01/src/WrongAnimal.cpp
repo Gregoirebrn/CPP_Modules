@@ -25,16 +25,16 @@ WrongAnimal::~WrongAnimal() {
 	std::cout << "WrongAnimal default destructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &origine) {
+WrongAnimal::WrongAnimal(const WrongAnimal &origin) {
 	std::cout << "Copy constructor operator called" << std::endl;
-	this->_type = origine._type;
+	this->_type = origin._type;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &origine) {
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this == &origine)
+	if (this == &origin)
 		return (*this);
-	this->_type = origine._type;
+	this->_type = origin._type;
 	return (*this);
 }
 

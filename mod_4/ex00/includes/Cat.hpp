@@ -23,7 +23,7 @@ public:
 	Cat();
 	~Cat();
 	Cat (const Cat &);
-	Cat &operator=(const Cat &origine);
+	Cat &operator=(const Cat &origin);
 	void makeSound() const;
 };
 

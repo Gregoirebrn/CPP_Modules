@@ -20,16 +20,16 @@ Dog::~Dog() {
 	std::cout << "Dog default destructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &origine) : Animal(origine) {
+Dog::Dog(const Dog &origin) : Animal(origin) {
 	std::cout << "Copy constructor operator called" << std::endl;
-	this->_type = origine._type;
+	this->_type = origin._type;
 }
 
-Dog &Dog::operator=(const Dog &origine) {
+Dog &Dog::operator=(const Dog &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this == &origine)
+	if (this == &origin)
 		return (*this);
-	this->_type = origine._type;
+	this->_type = origin._type;
 	return (*this);
 }
 

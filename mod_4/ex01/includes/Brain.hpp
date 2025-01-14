@@ -22,7 +22,7 @@ public:
 	Brain();
 	virtual ~Brain();
 	Brain (const Brain &);
-	Brain &operator=(const Brain &origine);
+	Brain &operator=(const Brain &origin);
 };
 
 #endif

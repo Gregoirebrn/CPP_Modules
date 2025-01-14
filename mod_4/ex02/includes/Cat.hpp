@@ -25,7 +25,7 @@ public:
 	Cat();
 	~Cat();
 	Cat (const Cat &);
-	Cat &operator=(const Cat &origine);
+	Cat &operator=(const Cat &origin);
 
 	virtual void makeSound() const;
 };

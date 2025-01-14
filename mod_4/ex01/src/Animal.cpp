@@ -25,16 +25,16 @@ Animal::~Animal() {
 	std::cout << "Animal default destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &origine) {
+Animal::Animal(const Animal &origin) {
 	std::cout << "Animal Copy constructor operator called" << std::endl;
-	*this = origine;
+	*this = origin;
 }
 
-Animal &Animal::operator=(const Animal &origine) {
+Animal &Animal::operator=(const Animal &origin) {
 	std::cout << "Animal Copy assignment operator called" << std::endl;
-	if (this == &origine)
+	if (this == &origin)
 		return (*this);
-	this->_type = origine._type;
+	this->_type = origin._type;
 	return (*this);
 }
 

@@ -23,7 +23,7 @@ public:
 	Animal(std::string name);
 	virtual ~Animal();
 	Animal (const Animal &);
-	Animal &operator=(const Animal &origine);
+	Animal &operator=(const Animal &origin);
 
 	std::string getType() const ;
 	virtual void makeSound() const = 0;

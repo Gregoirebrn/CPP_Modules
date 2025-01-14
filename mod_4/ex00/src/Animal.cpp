@@ -16,7 +16,7 @@ Animal::Animal() : _type("default") {
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type) {
+Animal::Animal(const std::string& type) {
 	this->_type = type;
 	std::cout << "Animal second constructor called" << std::endl;
 }
@@ -25,20 +25,20 @@ Animal::~Animal() {
 	std::cout << "Animal default destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &origine) {
+Animal::Animal(const Animal &origin) {
 	std::cout << "Copy constructor operator called" << std::endl;
-	this->_type = origine._type;
+	this->_type = origin._type;
 }
 
-Animal &Animal::operator=(const Animal &origine) {
+Animal &Animal::operator=(const Animal &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this == &origine)
+	if (this == &origin)
 		return (*this);
-	this->_type = origine._type;
+	this->_type = origin._type;
 	return (*this);
 }
 
-std::string const Animal::getType() const
+std::string Animal::getType() const
 {
 	return this->_type;
 }

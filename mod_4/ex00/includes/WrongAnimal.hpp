@@ -20,12 +20,12 @@ private:
 	std::string		_type;
 public:
 	WrongAnimal();
-	WrongAnimal(std::string name);
+	WrongAnimal(const std::string& name);
 	virtual ~WrongAnimal();
 	WrongAnimal (const WrongAnimal &);
-	WrongAnimal &operator=(const WrongAnimal &origine);
+	WrongAnimal &operator=(const WrongAnimal &origin);
 
-	std::string const getType() const ;
+	std::string getType() const ;
 	void makeSound() const;
 };
 

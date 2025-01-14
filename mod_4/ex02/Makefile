@@ -16,11 +16,11 @@
 
 SRCS		:=	main.cpp		\
 				Animal.cpp		\
+				Brain.cpp		\
 				Cat.cpp			\
 				Dog.cpp			\
 				WrongCat.cpp	\
 				WrongAnimal.cpp	\
-				Brain.cpp		\
 
 SRCS_D		:=	src/
 
@@ -29,11 +29,11 @@ OBJS_D		:=	objs/
 OBJS		=	$(SRCS:%.cpp=$(OBJS_D)%.o)
 
 HEAD		:=	Animal.hpp		\
+				Brain.hpp		\
 				Cat.hpp			\
 				Dog.hpp			\
 				WrongCat.hpp	\
 				WrongAnimal.hpp	\
-				Brain.hpp		\
 
 HEAD_D		:=	includes/
 

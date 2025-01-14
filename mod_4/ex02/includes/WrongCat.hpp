@@ -23,7 +23,7 @@ public:
 	WrongCat();
 	~WrongCat();
 	WrongCat (const WrongCat &);
-	WrongCat &operator=(const WrongCat &origine);
+	WrongCat &operator=(const WrongCat &origin);
 };
 
 #endif

@@ -20,16 +20,16 @@ Brain::~Brain() {
 	std::cout << "Brain default destructor called" << std::endl;
 }
 
-Brain::Brain(const Brain &origine) {
+Brain::Brain(const Brain &origin) {
 	std::cout << "Brain Copy constructor operator called" << std::endl;
-	*this = origine;
+	*this = origin;
 }
 
-Brain &Brain::operator=(const Brain &origine) {
+Brain &Brain::operator=(const Brain &origin) {
 	std::cout << "Brain Copy assignment operator called" << std::endl;
-	if (this == &origine)
+	if (this == &origin)
 		return (*this);
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = origine._ideas[i];
+		this->_ideas[i] = origin._ideas[i];
 	return (*this);
 }
