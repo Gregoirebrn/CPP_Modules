@@ -32,17 +32,17 @@ void Harl::switcher(const std::string level) {
 		}
 		case 5951322: {
 			for (int i = 1; i < 4; i++)
-				(this->*fptr[i])();
+				(this->*fptr[1])();
 			break;
 		}
 		case 1455067208: {
 			for (int i = 2; i < 4; i++)
-				(this->*fptr[i])();
+				(this->*fptr[2])();
 			break;
 		}
 		case 242571940: {
 			for (int i = 3; i < 4; i++)
-				(this->*fptr[i])();
+				(this->*fptr[3])();
 			break;
 		}
 		default:

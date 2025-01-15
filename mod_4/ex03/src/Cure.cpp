@@ -3,7 +3,6 @@
 //
 
 #include "Cure.hpp"
-#include "AMateria.hpp"
 
 // Constructors & destructor
 Cure::Cure() : AMateria("cure"){

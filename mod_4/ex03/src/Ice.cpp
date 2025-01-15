@@ -25,10 +25,10 @@ Ice &Ice::operator=(const Ice &src) {
 }
 
 // Public methods
-AMateria* Ice::clone() const {
-	return new Ice(*this);
-}
-
 void Ice::use(ICharacter &origin) {
 	std::cout << "* shoots an ice bolt at " << origin.getName() << " *" << std::endl;
+}
+
+AMateria* Ice::clone() const {
+	return new Ice(*this);
 }

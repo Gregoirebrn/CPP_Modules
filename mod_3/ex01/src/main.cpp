@@ -15,8 +15,9 @@
 int main( void ) {
 	std::cout << "---------------Constructor----------------" << std::endl;
 	ClapTrap Ben("BEN");
-	ClapTrap Kaan("KAAN");
+
 	ScavTrap Greg("GOYO");
+	ScavTrap Kaan = Greg;
 
 	std::cout << "-------------------Tests------------------" << std::endl;
 	Ben.attack("KAAN");

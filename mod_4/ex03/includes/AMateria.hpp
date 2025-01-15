@@ -11,18 +11,12 @@ class ICharacter ;
 
 class AMateria {
 protected :
-	std::string _type;
+	std::string		_type;
 public :
 	// Constructors & destructor
-	AMateria();
+	AMateria() {}
 	AMateria(const std::string& type);
-	AMateria(const AMateria &copy);
-
-	~AMateria();
-
-	// Overloaded operators
-	AMateria &operator=(const AMateria &src);
-
+	virtual ~AMateria();
 	// Public methods
 	std::string const & getType() const; //Returns the materia type
 	virtual AMateria* clone() const = 0;
