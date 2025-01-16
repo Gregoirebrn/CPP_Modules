@@ -24,3 +24,9 @@ void AMateria::use(ICharacter &target) {
 	std::cout << "AMateria Should Not Print" << std::endl;
 }
 
+AMateria &AMateria::operator=(const AMateria &src) {
+	if (this != &src)
+		_type = src._type;
+	return (*this);
+}
+

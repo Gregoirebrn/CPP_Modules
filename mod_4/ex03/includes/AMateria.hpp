@@ -16,6 +16,7 @@ public :
 	// Constructors & destructor
 	AMateria() {}
 	AMateria(const std::string& type);
+	AMateria &operator=(const AMateria &src);
 	virtual ~AMateria();
 	// Public methods
 	std::string const & getType() const; //Returns the materia type
